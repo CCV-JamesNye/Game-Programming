@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7qec0m6eo6ik"
-path="res://.godot/imported/skater-nobackground.png-9d86adc5474ac071001ee6f54418e464.ctex"
+path="res://.godot/imported/skater-nobackground.png-97b2942383b7d383fc018213e4874ba4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skater-nobackground.png"
-dest_files=["res://.godot/imported/skater-nobackground.png-9d86adc5474ac071001ee6f54418e464.ctex"]
+source_file="res://player/skater-nobackground.png"
+dest_files=["res://.godot/imported/skater-nobackground.png-97b2942383b7d383fc018213e4874ba4.ctex"]
 
 [params]
 
