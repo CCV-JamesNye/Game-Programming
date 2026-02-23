@@ -24,6 +24,7 @@ func _physics_process( delta: float) -> void:
 		#Store Direction
 	var direction : Vector2 = Vector2.ZERO
 	
+	# cis2295 "implementing collisions" has killing player by falling into hole. I can use that. (see also barrelfirehazard script)
 #Apply Movement
 	#Read Input
 	if Input.is_action_pressed("move_right"):

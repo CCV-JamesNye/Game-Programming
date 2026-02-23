@@ -38,7 +38,7 @@ scale = Vector2(0.7701823, 1)
 texture = ExtResource("1_cau68")
 
 [node name="BarrelFireHazard" type="Area2D" parent="." unique_id=179376704]
-position = Vector2(927, 510)
+position = Vector2(927, 521)
 script = ExtResource("1_1q155")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelFireHazard" unique_id=417055943]
