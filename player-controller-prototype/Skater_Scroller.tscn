@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://d1x8pu4svba48"]
 
+[ext_resource type="Script" uid="uid://b2p4pdckria5e" path="res://Scripts/barrel_fire_hazard.gd" id="1_1q155"]
 [ext_resource type="Texture2D" uid="uid://dk6tbitixjktq" path="res://environment/cardboard_box2.png" id="1_38ol2"]
+[ext_resource type="Texture2D" uid="uid://cidrhh8fgmuhx" path="res://environment/floor.png" id="1_cau68"]
 [ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scripts/skater-character-body.gd" id="2_4c7b1"]
+[ext_resource type="Texture2D" uid="uid://b5pkosq6vn2fg" path="res://environment/flaming barrel.png" id="2_cau68"]
 [ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://player/skater-nobackground.png" id="3_s1e06"]
 [ext_resource type="Script" uid="uid://dhha3cxule17j" path="res://area_2d.gd" id="4_1q155"]
 [ext_resource type="Texture2D" uid="uid://cga2b12olqdsi" path="res://environment/coin.png" id="5_4c7b1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvdt0"]
+radius = 31.0
+height = 138.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24lg5"]
 size = Vector2(74, 64)
@@ -20,13 +27,35 @@ radius = 23.537205
 [node name="World" type="Node2D" unique_id=1923671400]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=323675050]
+position = Vector2(537, 573)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1718314749]
-position = Vector2(561, 518)
 shape = SubResource("WorldBoundaryShape2D_u302n")
 
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1566609171]
+position = Vector2(44, 52)
+scale = Vector2(0.7701823, 1)
+texture = ExtResource("1_cau68")
+
+[node name="BarrelFireHazard" type="Area2D" parent="." unique_id=179376704]
+position = Vector2(927, 510)
+script = ExtResource("1_1q155")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelFireHazard" unique_id=417055943]
+shape = SubResource("CapsuleShape2D_fvdt0")
+
+[node name="FireBarrel" type="StaticBody2D" parent="." unique_id=1549635379]
+position = Vector2(927, 520)
+
+[node name="Sprite2D" type="Sprite2D" parent="FireBarrel" unique_id=1702444746]
+scale = Vector2(0.16601558, 0.18603516)
+texture = ExtResource("2_cau68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireBarrel" unique_id=1124109692]
+shape = SubResource("CapsuleShape2D_fvdt0")
+
 [node name="Box" type="RigidBody2D" parent="." unique_id=817028074]
-position = Vector2(637, 438)
+position = Vector2(539, 467)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1881183635]
 position = Vector2(0, -1)
@@ -37,9 +66,10 @@ scale = Vector2(0.254, 0.254)
 texture = ExtResource("1_38ol2")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=945709892]
-position = Vector2(280, 411)
+position = Vector2(110, 416)
 collision_layer = 3
 script = ExtResource("2_4c7b1")
+jump_force = -600.0
 
 [node name="Skater" type="Sprite2D" parent="Player" unique_id=1994177209]
 position = Vector2(-5, -90)
@@ -58,7 +88,7 @@ offset_bottom = -191.0
 text = "State"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2040977948]
-position = Vector2(636, 287)
+position = Vector2(537, 335)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_1q155")
@@ -72,3 +102,5 @@ shape = SubResource("CircleShape2D_2cmkh")
 light_mask = 0
 scale = Vector2(0.08593746, 0.082031265)
 texture = ExtResource("5_4c7b1")
+
+[connection signal="body_entered" from="BarrelFireHazard" to="BarrelFireHazard" method="_on_body_entered"]

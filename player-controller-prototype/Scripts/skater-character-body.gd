@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var state_label: Label = $StateLabel
 
 #Speed
-@export var speed : float = 200
+@export var speed : float = 375
 @export var gravity : float = 980.0
 @export var jump_force : float = -400
 
