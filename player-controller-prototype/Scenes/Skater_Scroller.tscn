@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d1x8pu4svba48"]
 
-[ext_resource type="Texture2D" uid="uid://dk6tbitixjktq" path="res://environment/cardboard_box2.png" id="1_38ol2"]
-[ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scripts/skater-character-body.gd" id="2_4c7b1"]
-[ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://player/skater-nobackground.png" id="3_s1e06"]
-[ext_resource type="Script" uid="uid://dhha3cxule17j" path="res://area_2d.gd" id="4_1q155"]
-[ext_resource type="Texture2D" uid="uid://cga2b12olqdsi" path="res://environment/coin.png" id="5_4c7b1"]
+[ext_resource type="Texture2D" uid="uid://dk6tbitixjktq" path="res://art/cardboard_box2.png" id="1_7dufk"]
+[ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scenes/Scripts/skater-character-body.gd" id="2_1h2ij"]
+[ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://player/skater-nobackground.png" id="3_6qg56"]
+[ext_resource type="Script" uid="uid://dhha3cxule17j" path="res://Scenes/Scripts/area_2d.gd" id="4_lv0gn"]
+[ext_resource type="Texture2D" uid="uid://cga2b12olqdsi" path="res://art/coin.png" id="5_4681y"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
 
@@ -34,17 +34,17 @@ shape = SubResource("RectangleShape2D_24lg5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=214887062]
 scale = Vector2(0.254, 0.254)
-texture = ExtResource("1_38ol2")
+texture = ExtResource("1_7dufk")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=945709892]
 position = Vector2(280, 411)
 collision_layer = 3
-script = ExtResource("2_4c7b1")
+script = ExtResource("2_1h2ij")
 
 [node name="Skater" type="Sprite2D" parent="Player" unique_id=1994177209]
 position = Vector2(-5, -90)
 scale = Vector2(0.6535948, 0.6433823)
-texture = ExtResource("3_s1e06")
+texture = ExtResource("3_6qg56")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1193687925]
 position = Vector2(-8, -95)
@@ -61,7 +61,7 @@ text = "State"
 position = Vector2(636, 287)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_1q155")
+script = ExtResource("4_lv0gn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=348093990]
 light_mask = 0
@@ -71,4 +71,4 @@ shape = SubResource("CircleShape2D_2cmkh")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=634235119]
 light_mask = 0
 scale = Vector2(0.08593746, 0.082031265)
-texture = ExtResource("5_4c7b1")
+texture = ExtResource("5_4681y")

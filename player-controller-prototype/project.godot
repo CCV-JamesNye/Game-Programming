@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Player Controller Prototype"
-run/main_scene="res://Skater_Scroller.tscn"
+run/main_scene="res://Scenes/Skater_Scroller.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
