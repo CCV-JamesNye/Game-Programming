@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2p4pdckria5e" path="res://Scripts/barrel_fire_hazard.gd" id="1_1q155"]
 [ext_resource type="Texture2D" uid="uid://dk6tbitixjktq" path="res://environment/cardboard_box2.png" id="1_38ol2"]
-[ext_resource type="Texture2D" uid="uid://cidrhh8fgmuhx" path="res://environment/floor.png" id="1_cau68"]
+[ext_resource type="Texture2D" uid="uid://bnse8u4gx5gal" path="res://art/sunset over NE town.png" id="1_cau68"]
 [ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scripts/skater-character-body.gd" id="2_4c7b1"]
 [ext_resource type="Texture2D" uid="uid://b5pkosq6vn2fg" path="res://environment/flaming barrel.png" id="2_cau68"]
 [ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://player/skater-nobackground.png" id="3_s1e06"]
@@ -12,7 +12,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvdt0"]
-radius = 31.0
+radius = 33.0
 height = 138.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24lg5"]
@@ -26,22 +26,23 @@ radius = 23.537205
 
 [node name="World" type="Node2D" unique_id=1923671400]
 
+[node name="SunsetOverNeTown" type="Sprite2D" parent="." unique_id=809676241]
+position = Vector2(640.6875, 361.125)
+scale = Vector2(0.8324381, 0.71069336)
+texture = ExtResource("1_cau68")
+
 [node name="Floor" type="StaticBody2D" parent="." unique_id=323675050]
 position = Vector2(537, 573)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1718314749]
 shape = SubResource("WorldBoundaryShape2D_u302n")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1566609171]
-position = Vector2(44, 52)
-scale = Vector2(0.7701823, 1)
-texture = ExtResource("1_cau68")
-
 [node name="BarrelFireHazard" type="Area2D" parent="." unique_id=179376704]
 position = Vector2(927, 521)
 script = ExtResource("1_1q155")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelFireHazard" unique_id=417055943]
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_fvdt0")
 
 [node name="FireBarrel" type="StaticBody2D" parent="." unique_id=1549635379]
@@ -52,6 +53,7 @@ scale = Vector2(0.16601558, 0.18603516)
 texture = ExtResource("2_cau68")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireBarrel" unique_id=1124109692]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_fvdt0")
 
 [node name="Box" type="RigidBody2D" parent="." unique_id=817028074]
