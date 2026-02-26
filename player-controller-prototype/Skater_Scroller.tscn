@@ -49,6 +49,7 @@ shape = SubResource("CapsuleShape2D_fvdt0")
 position = Vector2(927, 520)
 
 [node name="Sprite2D" type="Sprite2D" parent="FireBarrel" unique_id=1702444746]
+texture_filter = 1
 scale = Vector2(0.16601558, 0.18603516)
 texture = ExtResource("2_cau68")
 
@@ -64,6 +65,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_24lg5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=214887062]
+texture_filter = 1
 scale = Vector2(0.254, 0.254)
 texture = ExtResource("1_38ol2")
 
@@ -102,6 +104,7 @@ shape = SubResource("CircleShape2D_2cmkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=634235119]
 light_mask = 0
+texture_filter = 1
 scale = Vector2(0.08593746, 0.082031265)
 texture = ExtResource("5_4c7b1")
 
