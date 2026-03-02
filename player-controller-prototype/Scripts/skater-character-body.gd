@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var gravity : float = 980.0
 @export var jump_force : float = -400
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+var jumping = false
+
 
 #Node enters scene tree
 func _ready() -> void: 
@@ -21,24 +23,30 @@ func _physics_process( delta: float) -> void:
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
-	
 		#Store Direction
 	var direction : Vector2 = Vector2.ZERO
 	
 	# cis2295 "implementing collisions" has killing player by falling into hole. I can use that. (see also barrelfirehazard script)
 #Apply Movement
-	#Read Input
+
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
 	
-	if direction != Vector2.ZERO:
+	if jumping:
+		animated_sprite_2d.play("jump")
+		if is_on_floor():
+				jumping = false
+	
+	elif direction != Vector2.ZERO:
 		animated_sprite_2d.play("run")
+	
 		if direction.x <0:
 			animated_sprite_2d.flip_h = true
 		else: 
 			animated_sprite_2d.flip_h = false
+	
 	else:
 		animated_sprite_2d.play("idle")
 		
@@ -49,3 +57,5 @@ func _physics_process( delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
+		jumping = true
+		

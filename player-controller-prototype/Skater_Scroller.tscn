@@ -40,23 +40,15 @@ region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvdt0"]
 atlas = ExtResource("7_fvdt0")
-region = Rect2(408, 0, 24, 24)
+region = Rect2(240, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_axbyi"]
 atlas = ExtResource("7_fvdt0")
-region = Rect2(432, 0, 24, 24)
+region = Rect2(264, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amekx"]
 atlas = ExtResource("7_fvdt0")
-region = Rect2(480, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fv3ym"]
-atlas = ExtResource("7_fvdt0")
-region = Rect2(504, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_voqv2"]
-atlas = ExtResource("7_fvdt0")
-region = Rect2(528, 0, 24, 24)
+region = Rect2(288, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpwxn"]
 atlas = ExtResource("7_fvdt0")
@@ -110,16 +102,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_amekx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fv3ym")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_voqv2")
 }],
 "loop": true,
 "name": &"jump",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -222,7 +208,7 @@ scale = Vector2(5.75, 5.75)
 sprite_frames = SubResource("SpriteFrames_axbyi")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.45447084
+frame_progress = 0.72750044
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2040977948]
 position = Vector2(537, 335)
