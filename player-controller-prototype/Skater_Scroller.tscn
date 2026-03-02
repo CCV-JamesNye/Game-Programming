@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bnse8u4gx5gal" path="res://art/sunset over NE town.png" id="1_cau68"]
 [ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scripts/skater-character-body.gd" id="2_4c7b1"]
 [ext_resource type="Texture2D" uid="uid://b5pkosq6vn2fg" path="res://environment/flaming barrel.png" id="2_cau68"]
-[ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://player/skater-nobackground.png" id="3_s1e06"]
+[ext_resource type="Texture2D" uid="uid://7qec0m6eo6ik" path="res://Sprites/skater-nobackground.png" id="3_s1e06"]
 [ext_resource type="Script" uid="uid://dhha3cxule17j" path="res://area_2d.gd" id="4_1q155"]
 [ext_resource type="Texture2D" uid="uid://cga2b12olqdsi" path="res://environment/coin.png" id="5_4c7b1"]
+[ext_resource type="Texture2D" uid="uid://bewwp646yhged" path="res://Sprites/skater-idle.png" id="7_fvdt0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
 
@@ -19,7 +20,62 @@ height = 138.0
 size = Vector2(74, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cmkh"]
-size = Vector2(153, 191)
+size = Vector2(114, 191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yra5w"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(0, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy5go"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(256, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pwnx"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(512, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekyim"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(768, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpwxn"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(1024, 0, 256, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhasf"]
+atlas = ExtResource("7_fvdt0")
+region = Rect2(1280, 0, 256, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cau68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yra5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy5go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pwnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekyim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpwxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhasf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cmkh"]
 radius = 23.537205
@@ -76,12 +132,13 @@ script = ExtResource("2_4c7b1")
 jump_force = -600.0
 
 [node name="Skater" type="Sprite2D" parent="Player" unique_id=1994177209]
+visible = false
 position = Vector2(-5, -90)
 scale = Vector2(0.6535948, 0.6433823)
 texture = ExtResource("3_s1e06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1193687925]
-position = Vector2(-8, -95)
+position = Vector2(-5, -95)
 shape = SubResource("RectangleShape2D_2cmkh")
 
 [node name="StateLabel" type="Label" parent="Player" unique_id=1294267890]
@@ -90,6 +147,13 @@ offset_top = -214.0
 offset_right = 48.0
 offset_bottom = -191.0
 text = "State"
+
+[node name="AnimatedSkater" type="AnimatedSprite2D" parent="Player" unique_id=636720307]
+position = Vector2(-10.999998, -101)
+scale = Vector2(0.4902344, 0.4902344)
+sprite_frames = SubResource("SpriteFrames_cau68")
+animation = &"idle"
+frame_progress = 0.57856727
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2040977948]
 position = Vector2(537, 335)
