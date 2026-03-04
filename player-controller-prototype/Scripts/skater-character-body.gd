@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
 @onready var state_label: Label = $StateLabel
-
-#Speed
-@export var speed : float = 250
+@export var speed : float = 275
 @export var gravity : float = 980.0
 @export var jump_force : float = -400
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -36,9 +34,7 @@ func _physics_process( delta: float) -> void:
 	
 	if jumping:
 		animated_sprite_2d.play("jump")
-		if is_on_floor():
-				jumping = false
-	
+		
 	elif direction != Vector2.ZERO:
 		animated_sprite_2d.play("run")
 	
@@ -53,6 +49,9 @@ func _physics_process( delta: float) -> void:
 	
 	velocity.x = direction.normalized().x * speed
 	move_and_slide()
+	
+	if is_on_floor() and jumping:
+		jumping = false
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and is_on_floor():

@@ -13,7 +13,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvdt0"]
-radius = 33.0
+radius = 37.0
 height = 138.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24lg5"]
@@ -152,7 +152,7 @@ position = Vector2(927, 521)
 script = ExtResource("1_1q155")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelFireHazard" unique_id=417055943]
-position = Vector2(0, -14)
+position = Vector2(0, -22)
 shape = SubResource("CapsuleShape2D_fvdt0")
 
 [node name="FireBarrel" type="StaticBody2D" parent="." unique_id=1549635379]
