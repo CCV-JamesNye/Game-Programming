@@ -1,19 +1,10 @@
 [gd_scene format=3 uid="uid://bsj051yjbttnk"]
 
 [ext_resource type="Script" uid="uid://dk4pb4n3jgj2c" path="res://Scenes/UI/main_menu.gd" id="1_g18y6"]
+[ext_resource type="Texture2D" uid="uid://d2e5w6cmlh0ny" path="res://art/VTfieldMainMenuBackground.png" id="2_mjmdf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjwba"]
-bg_color = Color(0.2901961, 0.42745098, 0.29803923, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.29954743, 0.2995475, 0.29954726, 1)
-border_blend = true
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72sra"]
+texture = ExtResource("2_mjmdf")
 
 [node name="MainMenu" type="Control" unique_id=1241347827]
 layout_mode = 3
@@ -47,7 +38,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=1657671190]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kjwba")
+theme_override_styles/panel = SubResource("StyleBoxTexture_72sra")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=504658186]
 layout_mode = 1
@@ -64,7 +55,7 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=242999008]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 size_flags_stretch_ratio = 1.18
 
 [node name="Title" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1621801549]
@@ -75,12 +66,14 @@ text = "Skater Scroller"
 
 [node name="StartButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=360302549]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=413730456]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 50
 text = "Quit Game"
