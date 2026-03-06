@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://5ygwwinosqew"]
+
+[ext_resource type="FontFile" uid="uid://cc4cfv5uku6s" path="res://art/UI/Prehistoric Caveman.ttf" id="1_jxkuk"]
+[ext_resource type="Script" uid="uid://d2hmi3gbvv6jn" path="res://Scripts/game_over.gd" id="1_wpaxx"]
+
+[sub_resource type="Gradient" id="Gradient_wpaxx"]
+offsets = PackedFloat32Array(0.22807017, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jqelu"]
+gradient = SubResource("Gradient_wpaxx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w88jv"]
+texture = SubResource("GradientTexture1D_jqelu")
+
+[sub_resource type="Gradient" id="Gradient_ckxb7"]
+offsets = PackedFloat32Array(0, 0.68421054)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73uea"]
+gradient = SubResource("Gradient_ckxb7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqsr4"]
+texture = SubResource("GradientTexture1D_73uea")
+
+[node name="GameOver" type="CanvasLayer" unique_id=64583592]
+process_mode = 3
+script = ExtResource("1_wpaxx")
+
+[node name="Control" type="Control" parent="." unique_id=1732660817]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=65539227]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5411765)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=827026155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1366017659]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Game Over" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1736239995]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_jxkuk")
+theme_override_font_sizes/font_size = 52
+text = "GAME OVER!"
+horizontal_alignment = 1
+
+[node name="Game Over Msg" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1156527675]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/line_spacing = 10
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_jxkuk")
+theme_override_font_sizes/font_size = 15
+text = "
+That trick was prehistoric. 
+YOU'RE EXTINCT!
+"
+horizontal_alignment = 1
+
+[node name="MenuButton(Defy-Extinction)" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=24220269]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_jxkuk")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_w88jv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aqsr4")
+text = "Defy-Extinction"
+alignment = 2
