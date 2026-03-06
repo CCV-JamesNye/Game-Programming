@@ -58,3 +58,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		velocity.y = jump_force
 		jumping = true
 		
+func die() -> void: 
+	await get_tree().process_frame
+	get_tree().reload_current_scene()

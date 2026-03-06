@@ -90,5 +90,5 @@ theme_override_fonts/font = ExtResource("1_jxkuk")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxTexture_w88jv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_aqsr4")
-text = "Defy-Extinction"
+text = "|Defy-Extinction"
 alignment = 2
