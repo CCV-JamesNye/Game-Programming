@@ -1,10 +1,54 @@
 [gd_scene format=3 uid="uid://bsj051yjbttnk"]
 
 [ext_resource type="Script" uid="uid://dk4pb4n3jgj2c" path="res://Scenes/UI/main_menu.gd" id="1_g18y6"]
-[ext_resource type="Texture2D" uid="uid://d2e5w6cmlh0ny" path="res://art/VTfieldMainMenuBackground.png" id="2_mjmdf"]
+[ext_resource type="Texture2D" uid="uid://bnowf4mvam2r8" path="res://art/dino main menu background.webp" id="2_mjmdf"]
+[ext_resource type="FontFile" uid="uid://cc4cfv5uku6s" path="res://art/UI/Prehistoric Caveman.ttf" id="3_72sra"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72sra"]
 texture = ExtResource("2_mjmdf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6w0q"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.6862745)
+
+[sub_resource type="Gradient" id="Gradient_mjmdf"]
+offsets = PackedFloat32Array(0, 0.5701754, 1)
+colors = PackedColorArray(0.95686275, 0.2, 0.35686275, 1, 0.7581918, 0.7581918, 0.7581917, 1, 0.5176471, 0.32941177, 0.6784314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_72sra"]
+gradient = SubResource("Gradient_mjmdf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6w0q"]
+texture = SubResource("GradientTexture1D_72sra")
+
+[sub_resource type="Gradient" id="Gradient_k8um8"]
+offsets = PackedFloat32Array(0.0877193, 0.48245615, 0.84210527)
+colors = PackedColorArray(0.5176471, 0.32941177, 0.6784314, 1, 0.8346143, 0.8346143, 0.8346143, 1, 0.95686275, 0.2, 0.35686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jex3y"]
+gradient = SubResource("Gradient_k8um8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_744d7"]
+texture = SubResource("GradientTexture1D_jex3y")
+
+[sub_resource type="Gradient" id="Gradient_kl3t2"]
+offsets = PackedFloat32Array(0, 0.5263158, 1)
+colors = PackedColorArray(0.95686275, 0.2, 0.35686275, 1, 0.6378432, 0.6378432, 0.6378431, 1, 0.5176471, 0.32941177, 0.6784314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ynupv"]
+gradient = SubResource("Gradient_kl3t2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m48tj"]
+texture = SubResource("GradientTexture1D_ynupv")
+
+[sub_resource type="Gradient" id="Gradient_dvisc"]
+offsets = PackedFloat32Array(0, 0.5263158, 1)
+colors = PackedColorArray(0.5176471, 0.32941177, 0.6784314, 1, 0.6789437, 0.6789437, 0.6789436, 1, 0.95686275, 0.2, 0.35686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ab04i"]
+gradient = SubResource("Gradient_dvisc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hys1s"]
+texture = SubResource("GradientTexture1D_ab04i")
 
 [node name="MainMenu" type="Control" unique_id=1241347827]
 layout_mode = 3
@@ -22,7 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9764706, 0.78431374, 0.19607843, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2013326438]
 layout_mode = 1
@@ -55,25 +99,38 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=242999008]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 4
 size_flags_stretch_ratio = 1.18
+theme_override_constants/separation = 15
 
 [node name="Title" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1621801549]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 60
-text = "Skater Scroller"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_72sra")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6w0q")
+text = "Skate & Sediment"
 
 [node name="StartButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=360302549]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_72sra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_t6w0q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_744d7")
 text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=413730456]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_72sra")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_m48tj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hys1s")
 text = "Quit Game"
