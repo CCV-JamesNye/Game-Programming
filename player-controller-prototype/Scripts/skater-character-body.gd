@@ -59,5 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		jumping = true
 		
 func die() -> void: 
-	await get_tree().process_frame
-	get_tree().reload_current_scene()
+	call_deferred("_go_to_game_over")
+	
+func _go_to_game_over():
+	get_tree().change_scene_to_file("res://Scenes/UI/game_over.tscn")
