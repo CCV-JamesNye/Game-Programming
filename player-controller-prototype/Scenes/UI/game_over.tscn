@@ -2,9 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://cc4cfv5uku6s" path="res://art/UI/Prehistoric Caveman.ttf" id="1_jxkuk"]
 [ext_resource type="Script" uid="uid://d2hmi3gbvv6jn" path="res://Scripts/game_over.gd" id="1_wpaxx"]
+[ext_resource type="Texture2D" uid="uid://bu1chlfr81r2v" path="res://art/game over background.webp" id="2_jqelu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ckxb7"]
+texture = ExtResource("2_jqelu")
 
 [sub_resource type="Gradient" id="Gradient_wpaxx"]
-offsets = PackedFloat32Array(0.22807017, 1)
+offsets = PackedFloat32Array(0.21052632, 0.6754386)
+colors = PackedColorArray(0.9764706, 0.9843137, 0.7764706, 1, 0.9137255, 0.20784314, 0.22352941, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jqelu"]
 gradient = SubResource("Gradient_wpaxx")
@@ -42,6 +47,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5411765)
+
+[node name="Panel" type="Panel" parent="Control/ColorRect" unique_id=1340610562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ckxb7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=827026155]
 layout_mode = 1

@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dr2g2imidn253" path="res://Sprites/DinoSprites - tard.png" id="7_fvdt0"]
 [ext_resource type="Texture2D" uid="uid://cyn2b3jx5ljft" path="res://art/UI/meteor.png" id="8_4681y"]
 [ext_resource type="Script" uid="uid://dr6bu6pulpbky" path="res://Scripts/meteor_hazard.gd" id="8_kdxyx"]
+[ext_resource type="Script" uid="uid://bqjh86de512" path="res://Scripts/goal_line.gd" id="11_olp6o"]
+[ext_resource type="Script" uid="uid://crwjgfotdsowe" path="res://Scripts/tar_pit_hazard.gd" id="12_evljr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u302n"]
 distance = -37.0
@@ -139,6 +141,12 @@ radius = 23.537205
 radius = 117.0
 height = 616.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evljr"]
+size = Vector2(22, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao571"]
+size = Vector2(297, 20)
+
 [node name="World" type="Node2D" unique_id=1923671400]
 script = ExtResource("1_kdxyx")
 
@@ -232,4 +240,21 @@ texture = ExtResource("8_4681y")
 position = Vector2(149, 131)
 shape = SubResource("CapsuleShape2D_olp6o")
 
+[node name="Goal-line" type="Area2D" parent="." unique_id=1729060041]
+position = Vector2(671, 328)
+script = ExtResource("11_olp6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal-line" unique_id=1810803043]
+position = Vector2(595, -46)
+shape = SubResource("RectangleShape2D_evljr")
+
+[node name="Tar Pit" type="Area2D" parent="." unique_id=1774763304]
+position = Vector2(813, 545)
+script = ExtResource("12_evljr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tar Pit" unique_id=1305350977]
+shape = SubResource("RectangleShape2D_ao571")
+
 [connection signal="body_entered" from="Meteor" to="Meteor" method="_on_body_entered"]
+[connection signal="body_entered" from="Goal-line" to="Goal-line" method="_on_body_entered"]
+[connection signal="body_entered" from="Tar Pit" to="Tar Pit" method="_on_body_entered"]
