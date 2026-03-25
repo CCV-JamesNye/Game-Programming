@@ -178,7 +178,7 @@ shape = SubResource("RectangleShape2D_jo441")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy - Vita" unique_id=2038182330]
 libraries/ = SubResource("AnimationLibrary_jo441")
 
-[node name="RayCast2D" type="RayCast2D" parent="Enemy - Vita" unique_id=323907427]
+[node name="FloorDetector" type="RayCast2D" parent="Enemy - Vita" unique_id=323907427]
 position = Vector2(23, 1)
 target_position = Vector2(0, 20)
 
