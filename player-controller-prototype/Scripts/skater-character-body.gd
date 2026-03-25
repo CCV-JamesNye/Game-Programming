@@ -1,10 +1,13 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+
 
 @onready var state_label: Label = $StateLabel
 @export var speed : float = 275
 @export var gravity : float = 980.0
 @export var jump_force : float = -400
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var jumping = false
 
@@ -38,12 +41,12 @@ func _physics_process( delta: float) -> void:
 		animation_player.play("jump")
 		
 	elif direction != Vector2.ZERO:
-		animation_player.play("run")
+		animation_player.play("walk")
 	
 		if direction.x <0:
-			animation_player.flip_h = true
+			sprite_2d.flip_h = true
 		else: 
-			animation_player.flip_h = false
+			sprite_2d.flip_h = false
 	
 	else:
 		animation_player.play("idle")
