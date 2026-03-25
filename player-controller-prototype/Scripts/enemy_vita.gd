@@ -15,8 +15,6 @@ var current_state : STATE = STATE.PATROL
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		
-	velocity.x=direction.x*patrol_speed
 
 	move_and_slide()
 	if !floor_detector.is_colliding():
@@ -28,9 +26,10 @@ func _physics_process(delta: float) -> void:
 			floor_detector.position.x = 23
 			
 
+func _process(_delta: float) -> void:
 	if current_state == STATE.IDLE:
 		velocity=Vector2.ZERO
 		animation_player.play("idle")
 	elif current_state == STATE.PATROL:
 		animation_player.play("walk")
-		
+		velocity.x=direction.x*patrol_speed
