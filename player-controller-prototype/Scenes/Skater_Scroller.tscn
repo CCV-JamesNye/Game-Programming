@@ -151,6 +151,7 @@ size = Vector2(297, 20)
 script = ExtResource("1_kdxyx")
 
 [node name="SunsetOverNeTown" type="Sprite2D" parent="." unique_id=809676241]
+visible = false
 position = Vector2(640.6875, 361.125)
 scale = Vector2(0.8324381, 0.71069336)
 texture = ExtResource("2_lv0gn")

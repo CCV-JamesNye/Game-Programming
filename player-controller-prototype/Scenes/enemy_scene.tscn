@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://bffjn7pckrnyr"]
+
+[ext_resource type="Script" uid="uid://brrupedyn7vg2" path="res://Scripts/skater-character-body.gd" id="1_oi6bh"]
+[ext_resource type="Script" uid="uid://cqwepjc4lpvnv" path="res://Scripts/enemy_vita.gd" id="3_23b2i"]
+[ext_resource type="Texture2D" uid="uid://dr2g2imidn253" path="res://Sprites/DinoSprites - tard.png" id="3_v3aoh"]
+[ext_resource type="Texture2D" uid="uid://cidrhh8fgmuhx" path="res://environment/floor.png" id="4_p8yoa"]
+[ext_resource type="Texture2D" uid="uid://bjw5mwo0yvyry" path="res://Sprites/DinoSprites - vita.png" id="4_v3aoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqyr4"]
+size = Vector2(92, 96.5)
+
+[sub_resource type="Animation" id="Animation_p8yoa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rqyr4"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_8im45"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnwnp"]
+_data = {
+&"RESET": SubResource("Animation_p8yoa"),
+&"idle": SubResource("Animation_rqyr4"),
+&"walk": SubResource("Animation_8im45")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo441"]
+size = Vector2(51, 98)
+
+[sub_resource type="Animation" id="Animation_23b2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_v3aoh"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_pnwnp"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jo441"]
+_data = {
+&"RESET": SubResource("Animation_23b2i"),
+&"idle": SubResource("Animation_v3aoh"),
+&"walk": SubResource("Animation_pnwnp")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pnwnp"]
+distance = -37.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t12uc"]
+
+[node name="Enemy Scene" type="Node2D" unique_id=2040378030]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=479225629]
+position = Vector2(262, 555)
+script = ExtResource("1_oi6bh")
+jump_force = -600.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1388451998]
+position = Vector2(-3, -47.75)
+shape = SubResource("RectangleShape2D_rqyr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=251392335]
+position = Vector2(1, -52)
+scale = Vector2(5.75, 5.75)
+texture = ExtResource("3_v3aoh")
+hframes = 24
+
+[node name="StateLabel" type="Label" parent="Player" unique_id=637618764]
+offset_left = 8.0
+offset_top = -214.0
+offset_right = 48.0
+offset_bottom = -191.0
+text = "State"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=1591491588]
+libraries/ = SubResource("AnimationLibrary_pnwnp")
+
+[node name="Enemy - Vita" type="CharacterBody2D" parent="." unique_id=1350207629]
+position = Vector2(825, 250)
+collision_mask = 2
+script = ExtResource("3_23b2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy - Vita" unique_id=1633058586]
+position = Vector2(0, -45)
+scale = Vector2(5.75, 5.75)
+texture = ExtResource("4_v3aoh")
+hframes = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy - Vita" unique_id=1222730167]
+position = Vector2(-3, -48)
+shape = SubResource("RectangleShape2D_jo441")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy - Vita" unique_id=2038182330]
+libraries/ = SubResource("AnimationLibrary_jo441")
+
+[node name="RayCast2D" type="RayCast2D" parent="Enemy - Vita" unique_id=323907427]
+position = Vector2(23, 1)
+target_position = Vector2(0, 20)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=343482819]
+position = Vector2(530, 513)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=438475013]
+position = Vector2(0, 12)
+shape = SubResource("WorldBoundaryShape2D_pnwnp")
+
+[node name="Flooring" type="Sprite2D" parent="Floor" unique_id=250693454]
+position = Vector2(104, 104)
+texture = ExtResource("4_p8yoa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156771433]
+position = Vector2(960, 254)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=720027009]
+shape = SubResource("WorldBoundaryShape2D_t12uc")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1364202649]
+position = Vector2(-78, 28)
+scale = Vector2(0.41, 0.5)
+texture = ExtResource("4_p8yoa")

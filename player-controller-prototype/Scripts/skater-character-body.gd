@@ -4,7 +4,8 @@ extends CharacterBody2D
 @export var speed : float = 275
 @export var gravity : float = 980.0
 @export var jump_force : float = -400
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var jumping = false
 
 
@@ -21,6 +22,7 @@ func _physics_process( delta: float) -> void:
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
+	
 		#Store Direction
 	var direction : Vector2 = Vector2.ZERO
 	
@@ -33,18 +35,18 @@ func _physics_process( delta: float) -> void:
 		direction.x -= 1
 	
 	if jumping:
-		animated_sprite_2d.play("jump")
+		animation_player.play("jump")
 		
 	elif direction != Vector2.ZERO:
-		animated_sprite_2d.play("run")
+		animation_player.play("run")
 	
 		if direction.x <0:
-			animated_sprite_2d.flip_h = true
+			animation_player.flip_h = true
 		else: 
-			animated_sprite_2d.flip_h = false
+			animation_player.flip_h = false
 	
 	else:
-		animated_sprite_2d.play("idle")
+		animation_player.play("idle")
 		
 	
 	velocity.x = direction.normalized().x * speed

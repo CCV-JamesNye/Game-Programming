@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Player Controller Prototype"
-run/main_scene="uid://bsj051yjbttnk"
+run/main_scene="uid://bffjn7pckrnyr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
