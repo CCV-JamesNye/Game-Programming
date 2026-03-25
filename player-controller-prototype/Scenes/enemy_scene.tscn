@@ -131,12 +131,14 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pnwnp"]
 distance = -37.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t12uc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23b2i"]
+size = Vector2(629, 32)
 
 [node name="Enemy Scene" type="Node2D" unique_id=2040378030]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=479225629]
 position = Vector2(262, 555)
+collision_layer = 2
 script = ExtResource("1_oi6bh")
 jump_force = -600.0
 
@@ -162,7 +164,6 @@ libraries/ = SubResource("AnimationLibrary_pnwnp")
 
 [node name="Enemy - Vita" type="CharacterBody2D" parent="." unique_id=1350207629]
 position = Vector2(825, 250)
-collision_mask = 2
 script = ExtResource("3_23b2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy - Vita" unique_id=1633058586]
@@ -194,13 +195,13 @@ position = Vector2(104, 104)
 texture = ExtResource("4_p8yoa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=156771433]
-position = Vector2(960, 254)
-collision_layer = 2
+position = Vector2(901, 273)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=720027009]
-shape = SubResource("WorldBoundaryShape2D_t12uc")
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_23b2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1364202649]
-position = Vector2(-78, 28)
+position = Vector2(2, 9)
 scale = Vector2(0.41, 0.5)
 texture = ExtResource("4_p8yoa")
