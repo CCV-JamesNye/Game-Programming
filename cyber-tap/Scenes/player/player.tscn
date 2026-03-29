@@ -2,16 +2,32 @@
 
 [ext_resource type="Script" uid="uid://qpchkcvy6m48" path="res://Scenes/player/player.gd" id="1_eo61r"]
 [ext_resource type="Texture2D" uid="uid://d4ctugsrp6x2c" path="res://Art/Male 07-1.png" id="2_mxepk"]
+[ext_resource type="Script" uid="uid://cdu41wn5hk2pg" path="res://Scripts/hurt_box.gd" id="3_mxepk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieo53"]
-size = Vector2(19, 30)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e41v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca0mu"]
+size = Vector2(13, 22)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxepk"]
+bg_color = Color(0.68235296, 0, 0.11764706, 1)
+
+[sub_resource type="GDScript" id="GDScript_mxepk"]
+script/source = "extends ProgressBar
+@onready var player: CharacterBody2D = $\"../..\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	player.health_update.connect ( _update_bar)
+	pass # Replace with function body.
+
+func _update_bar ( health : int ) -> void:
+	value = health
+"
 
 [node name="Player" type="CharacterBody2D" unique_id=1070556382]
 script = ExtResource("1_eo61r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951833264]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_ieo53")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=650030629]
 texture_filter = 1
@@ -19,3 +35,32 @@ texture = ExtResource("2_mxepk")
 hframes = 3
 vframes = 4
 region_rect = Rect2(26.804283, 15.358536, 26.171059, 52.342117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951833264]
+visible = false
+position = Vector2(0.5, 1)
+shape = SubResource("CapsuleShape2D_e41v5")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1315014390]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("3_mxepk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1521029585]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_ca0mu")
+debug_color = Color(0.7725686, 0, 0.069584176, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1023661300]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1228880196]
+offset_left = 30.0
+offset_top = 29.0
+offset_right = 132.0
+offset_bottom = 42.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_mxepk")
+max_value = 3.0
+value = 3.0
+show_percentage = false
+script = SubResource("GDScript_mxepk")
