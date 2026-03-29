@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6xlbartikoaq"]
+
+[ext_resource type="PackedScene" uid="uid://c1bqa8mw2l2sm" path="res://Scenes/player/player.tscn" id="1_ieo53"]
+[ext_resource type="Script" uid="uid://sxwcm0omplki" path="res://Scripts/danger_zone.gd" id="2_gf8vk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qitla"]
+radius = 40.04997
+
+[node name="Bar(world)" type="Node2D" unique_id=769902342]
+
+[node name="Player" parent="." unique_id=1070556382 instance=ExtResource("1_ieo53")]
+position = Vector2(93, 58)
+
+[node name="Danger Zone" type="Area2D" parent="." unique_id=557840877]
+position = Vector2(361, 132)
+script = ExtResource("2_gf8vk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Danger Zone" unique_id=5934559]
+shape = SubResource("CircleShape2D_qitla")

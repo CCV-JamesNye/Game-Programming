@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c1bqa8mw2l2sm"]
+
+[ext_resource type="Script" uid="uid://qpchkcvy6m48" path="res://Scenes/player/player.gd" id="1_eo61r"]
+[ext_resource type="Texture2D" uid="uid://d4ctugsrp6x2c" path="res://Art/Male 07-1.png" id="2_mxepk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieo53"]
+size = Vector2(19, 30)
+
+[node name="Player" type="CharacterBody2D" unique_id=1070556382]
+script = ExtResource("1_eo61r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951833264]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_ieo53")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=650030629]
+texture_filter = 1
+texture = ExtResource("2_mxepk")
+hframes = 3
+vframes = 4
+region_rect = Rect2(26.804283, 15.358536, 26.171059, 52.342117)
