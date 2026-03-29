@@ -6,6 +6,7 @@ signal health_update (int)
 var health : int = 3
 var max_health : int = 3
 @onready var hurt_box: Area2D = $HurtBox
+var is_dead := false
 
 func _ready() -> void:
 	hurt_box.take_damage.connect ( _take_damage )
@@ -34,7 +35,13 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func die () -> void:
+	if is_dead:
+		return
+		
+	is_dead = true
+	
 	print ("Player Died!")
-	get_tree().call_deferred('reload_current_scene')
+	await get_tree().create_timer(1.0).timeout
+	get_tree().reload_current_scene()
 	
 	
