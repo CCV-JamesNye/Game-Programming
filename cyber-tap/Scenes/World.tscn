@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://b6xlbartikoaq"]
 
-[ext_resource type="PackedScene" uid="uid://c1bqa8mw2l2sm" path="res://Scenes/player/player.tscn" id="1_ieo53"]
-[ext_resource type="Texture2D" uid="uid://dphldsfwnqr45" path="res://Art/forest background.png" id="1_qitla"]
-[ext_resource type="Script" uid="uid://sxwcm0omplki" path="res://Scripts/danger_zone.gd" id="2_gf8vk"]
-[ext_resource type="PackedScene" uid="uid://dfwm0tv10pqbt" path="res://Scenes/enemy/enemy.tscn" id="2_qitla"]
+[ext_resource type="Texture2D" uid="uid://dphldsfwnqr45" path="res://Art/forest background.png" id="1_gjpho"]
+[ext_resource type="PackedScene" uid="uid://c1bqa8mw2l2sm" path="res://Scenes/player/player.tscn" id="2_p70al"]
+[ext_resource type="PackedScene" uid="uid://dfwm0tv10pqbt" path="res://Scenes/enemy/enemy.tscn" id="3_45d1s"]
+[ext_resource type="Script" uid="uid://sxwcm0omplki" path="res://Scripts/danger_zone.gd" id="4_y7y61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qitla"]
 radius = 40.04997
 
-[node name="Bar(world)" type="Node2D" unique_id=769902342]
+[node name="World" type="Node2D" unique_id=769902342]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1094761578]
 position = Vector2(323.5, 183.5)
 scale = Vector2(0.4277344, 0.36621094)
-texture = ExtResource("1_qitla")
+texture = ExtResource("1_gjpho")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=232602476]
 anchors_preset = 15
@@ -27,15 +28,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.003921569, 0.039215688, 0.07450981, 0.5019608)
 
-[node name="Player" parent="." unique_id=1070556382 instance=ExtResource("1_ieo53")]
+[node name="Player" parent="." unique_id=1070556382 instance=ExtResource("2_p70al")]
 position = Vector2(243, 203)
 
-[node name="Enemy" parent="." unique_id=1933781755 instance=ExtResource("2_qitla")]
+[node name="Enemy" parent="." unique_id=1933781755 instance=ExtResource("3_45d1s")]
 position = Vector2(301, 96)
 
 [node name="Danger Zone" type="Area2D" parent="." unique_id=557840877]
 position = Vector2(505, 194)
-script = ExtResource("2_gf8vk")
+script = ExtResource("4_y7y61")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Danger Zone" unique_id=5934559]
 shape = SubResource("CircleShape2D_qitla")

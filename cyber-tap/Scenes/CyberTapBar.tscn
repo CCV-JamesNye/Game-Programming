@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://cen6ok8l454ah"]
+
+[ext_resource type="Script" uid="uid://d303g3avvyc5x" path="res://Scenes/player/bartender_(player).gd" id="1_hg827"]
+[ext_resource type="Texture2D" uid="uid://j8recrhwvj0m" path="res://Art/Bartender.png" id="2_wxdmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgyi3"]
+size = Vector2(23, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uypo1"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8sa8"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0573"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riofv"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe2xn"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or5po"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_703c4"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oah5r"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s6ix"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yy5i"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubmj0"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5chha"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5bvc"]
+atlas = ExtResource("2_wxdmf")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcwx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uypo1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8sa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0573")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riofv")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe2xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or5po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_703c4")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oah5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s6ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yy5i")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubmj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5chha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5bvc")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w5oem"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggknq"]
+size = Vector2(0, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uypo1"]
+size = Vector2(164, 20)
+
+[node name="TheBar" type="Node2D" unique_id=1385653830]
+
+[node name="Bartender (Player)" type="CharacterBody2D" parent="." unique_id=1017337997]
+position = Vector2(217, 73)
+script = ExtResource("1_hg827")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bartender (Player)" unique_id=1596841768]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xgyi3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bartender (Player)" unique_id=1738631595]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bcwx1")
+animation = &"walk_down"
+
+[node name="BartenderBoundary" type="StaticBody2D" parent="." unique_id=1854301777]
+position = Vector2(165, 91)
+
+[node name="worldboundary" type="CollisionShape2D" parent="BartenderBoundary" unique_id=1881007776]
+shape = SubResource("WorldBoundaryShape2D_w5oem")
+
+[node name="physicalboundary" type="CollisionShape2D" parent="BartenderBoundary" unique_id=1740292338]
+shape = SubResource("RectangleShape2D_ggknq")
+
+[node name="Lane1" type="StaticBody2D" parent="." unique_id=1835425432]
+position = Vector2(82, 170)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lane1" unique_id=908667948]
+shape = SubResource("RectangleShape2D_uypo1")
+
+[node name="Lane2" type="StaticBody2D" parent="." unique_id=146333551]
+position = Vector2(82, 126)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lane2" unique_id=1106196226]
+shape = SubResource("RectangleShape2D_uypo1")
+
+[node name="Lane3" type="StaticBody2D" parent="." unique_id=464481605]
+position = Vector2(82, 82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lane3" unique_id=1169976541]
+shape = SubResource("RectangleShape2D_uypo1")
+
+[node name="Lane4" type="StaticBody2D" parent="." unique_id=1014079764]
+position = Vector2(82, 38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lane4" unique_id=1189174973]
+shape = SubResource("RectangleShape2D_uypo1")
