@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgfh8f7nvjlq8"
+path="res://.godot/imported/freesounds123-walking-on-wood.wav-8802255553992ce375c8f8cb2108831b.sample"
+
+[deps]
+
+source_file="res://Audio/Sound FX/freesounds123-walking-on-wood.wav"
+dest_files=["res://.godot/imported/freesounds123-walking-on-wood.wav-8802255553992ce375c8f8cb2108831b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

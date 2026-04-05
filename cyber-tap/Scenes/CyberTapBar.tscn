@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://d2huyr0rjbbga" path="res://Art/lanesurface.png" id="3_t6t08"]
 [ext_resource type="Texture2D" uid="uid://btyr7c2y713br" path="res://Art/Customer1.png" id="4_h3com"]
 [ext_resource type="Script" uid="uid://dijljcewjmbwt" path="res://Scripts/bartender_lane_detection.gd" id="4_mkna2"]
+[ext_resource type="AudioStream" uid="uid://bgfh8f7nvjlq8" path="res://Audio/Sound FX/freesounds123-walking-on-wood.wav" id="6_8i2kk"]
+[ext_resource type="AudioStream" uid="uid://cq1i4es3n2xuv" path="res://Audio/Sound FX/freesound_community-glass-clink.wav" id="7_18en6"]
+[ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="8_18en6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgyi3"]
 size = Vector2(23, 29)
@@ -322,6 +325,18 @@ texture_filter = 1
 texture = ExtResource("4_h3com")
 hframes = 3
 vframes = 4
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="." unique_id=1033946045]
+stream = ExtResource("6_8i2kk")
+pitch_scale = 1.2
+
+[node name="GlassClink1" type="AudioStreamPlayer2D" parent="." unique_id=1357850782]
+stream = ExtResource("7_18en6")
+pitch_scale = 1.2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=168895243]
+stream = ExtResource("8_18en6")
+autoplay = true
 
 [connection signal="body_entered" from="Lane1/BartenderLaneDetection" to="Lane1/BartenderLaneDetection" method="_on_body_entered"]
 [connection signal="body_entered" from="Lane2/BartenderLaneDetection" to="Lane2/BartenderLaneDetection" method="_on_body_entered"]
