@@ -131,6 +131,62 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="FontFile" id="FontFile_18en6"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w5oem"]
 normal = Vector2(1, 0)
 
@@ -149,6 +205,10 @@ radius = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2kk"]
 size = Vector2(19, 31)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18en6"]
+normal = Vector2(-1, 0)
+distance = -1.0
+
 [node name="TheBar" type="Node2D" unique_id=1385653830]
 
 [node name="Bartender (Player)" type="CharacterBody2D" parent="." unique_id=1017337997]
@@ -163,6 +223,16 @@ shape = SubResource("RectangleShape2D_xgyi3")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bcwx1")
 animation = &"walk_down"
+
+[node name="ServedText" type="Label" parent="Bartender (Player)" unique_id=482646007]
+visible = false
+offset_left = -13.0
+offset_top = -25.0
+offset_right = 40.0
+offset_bottom = -2.0
+theme_override_fonts/font = SubResource("FontFile_18en6")
+theme_override_font_sizes/font_size = 8
+text = "Served!"
 
 [node name="BartenderBoundary" type="StaticBody2D" parent="." unique_id=1854301777]
 position = Vector2(165, 91)
@@ -336,7 +406,31 @@ pitch_scale = 1.2
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=168895243]
 stream = ExtResource("8_18en6")
+volume_db = -22.0
 autoplay = true
+
+[node name="EastWall" type="Area2D" parent="." unique_id=235103707]
+position = Vector2(358, 83)
+rotation = -0.011223085
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall" unique_id=59642690]
+position = Vector2(0.9942932, 0.10699463)
+shape = SubResource("WorldBoundaryShape2D_18en6")
+
+[node name="SouthWall" type="Area2D" parent="." unique_id=1685514954]
+position = Vector2(195, 180)
+rotation = 1.570361
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWall" unique_id=306664894]
+position = Vector2(0, -1)
+shape = SubResource("WorldBoundaryShape2D_18en6")
+
+[node name="NorthWall" type="Area2D" parent="." unique_id=1817117660]
+position = Vector2(198, 0)
+rotation = -1.5645667
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall" unique_id=1919760669]
+shape = SubResource("WorldBoundaryShape2D_18en6")
 
 [connection signal="body_entered" from="Lane1/BartenderLaneDetection" to="Lane1/BartenderLaneDetection" method="_on_body_entered"]
 [connection signal="body_entered" from="Lane2/BartenderLaneDetection" to="Lane2/BartenderLaneDetection" method="_on_body_entered"]

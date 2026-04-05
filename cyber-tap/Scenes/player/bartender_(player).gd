@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footstep_sound: AudioStreamPlayer2D = $"../FootstepSound"
 @onready var glass_clink_1: AudioStreamPlayer2D = $"../GlassClink1"
+@onready var served_text: Label = $ServedText
 
 
 var current_lane = 0
@@ -53,3 +54,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("serve"):
 		glass_clink_1.play()
 		print("Serving drink in lane:", current_lane)
+		
+		served_text.visible = true
+		await get_tree().create_timer(0.5).timeout
+		served_text.visible = false
