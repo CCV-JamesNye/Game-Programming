@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bgfh8f7nvjlq8" path="res://Audio/Sound FX/freesounds123-walking-on-wood.wav" id="6_8i2kk"]
 [ext_resource type="AudioStream" uid="uid://cq1i4es3n2xuv" path="res://Audio/Sound FX/freesound_community-glass-clink.wav" id="7_18en6"]
 [ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="8_18en6"]
+[ext_resource type="AudioStream" uid="uid://bjcf1ailoikg" path="res://Audio/Sound FX/glass-break-bottle-universfield.wav" id="8_dc2m4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgyi3"]
 size = Vector2(23, 29)
@@ -205,9 +206,14 @@ radius = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2kk"]
 size = Vector2(19, 31)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18en6"]
-normal = Vector2(-1, 0)
-distance = -1.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18en6"]
+size = Vector2(363, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc2m4"]
+size = Vector2(10, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioptu"]
+size = Vector2(365, 13)
 
 [node name="TheBar" type="Node2D" unique_id=1385653830]
 
@@ -404,35 +410,40 @@ pitch_scale = 1.2
 stream = ExtResource("7_18en6")
 pitch_scale = 1.2
 
+[node name="GlassBottleBreak" type="AudioStreamPlayer2D" parent="." unique_id=1766547783]
+stream = ExtResource("8_dc2m4")
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=168895243]
 stream = ExtResource("8_18en6")
-volume_db = -22.0
+volume_db = -15.0
 autoplay = true
 
-[node name="EastWall" type="Area2D" parent="." unique_id=235103707]
-position = Vector2(358, 83)
-rotation = -0.011223085
+[node name="NorthWall" type="StaticBody2D" parent="." unique_id=641540319]
+position = Vector2(165, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall" unique_id=59642690]
-position = Vector2(0.9942932, 0.10699463)
-shape = SubResource("WorldBoundaryShape2D_18en6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall" unique_id=1998179609]
+position = Vector2(15.5, 1)
+shape = SubResource("RectangleShape2D_18en6")
 
-[node name="SouthWall" type="Area2D" parent="." unique_id=1685514954]
-position = Vector2(195, 180)
-rotation = 1.570361
+[node name="EastWall" type="StaticBody2D" parent="." unique_id=889109099]
+position = Vector2(359, 75)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWall" unique_id=306664894]
-position = Vector2(0, -1)
-shape = SubResource("WorldBoundaryShape2D_18en6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall" unique_id=1040264564]
+position = Vector2(1, 15)
+shape = SubResource("RectangleShape2D_dc2m4")
 
-[node name="NorthWall" type="Area2D" parent="." unique_id=1817117660]
-position = Vector2(198, 0)
-rotation = -1.5645667
+[node name="SouthWall" type="StaticBody2D" parent="." unique_id=1009107189]
+position = Vector2(166, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthWall" unique_id=1919760669]
-shape = SubResource("WorldBoundaryShape2D_18en6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SouthWall" unique_id=2076779793]
+position = Vector2(16.5, 3.5)
+shape = SubResource("RectangleShape2D_ioptu")
 
 [connection signal="body_entered" from="Lane1/BartenderLaneDetection" to="Lane1/BartenderLaneDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="Lane1/BartenderLaneDetection" to="Lane1/BartenderLaneDetection" method="_on_body_exited"]
 [connection signal="body_entered" from="Lane2/BartenderLaneDetection" to="Lane2/BartenderLaneDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="Lane2/BartenderLaneDetection" to="Lane2/BartenderLaneDetection" method="_on_body_exited"]
 [connection signal="body_entered" from="Lane3/BartenderLaneDetection" to="Lane3/BartenderLaneDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="Lane3/BartenderLaneDetection" to="Lane3/BartenderLaneDetection" method="_on_body_exited"]
 [connection signal="body_entered" from="Lane4/BartenderLaneDetection" to="Lane4/BartenderLaneDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="Lane4/BartenderLaneDetection" to="Lane4/BartenderLaneDetection" method="_on_body_exited"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jpt4dwnkaq4r"
+path="res://.godot/imported/glass-break-1-dragon-studios.wav-b43210d4e31f046fc74330654deca6ef.sample"
+
+[deps]
+
+source_file="res://Audio/Sound FX/glass-break-1-dragon-studios.wav"
+dest_files=["res://.godot/imported/glass-break-1-dragon-studios.wav-b43210d4e31f046fc74330654deca6ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

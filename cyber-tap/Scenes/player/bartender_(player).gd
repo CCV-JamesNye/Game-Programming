@@ -4,9 +4,11 @@ extends CharacterBody2D
 @onready var footstep_sound: AudioStreamPlayer2D = $"../FootstepSound"
 @onready var glass_clink_1: AudioStreamPlayer2D = $"../GlassClink1"
 @onready var served_text: Label = $ServedText
+@onready var glass_bottle_break: AudioStreamPlayer2D = $"../GlassBottleBreak"
 
 
-var current_lane = 0
+
+var current_lane = null
 var lanes = []
 
 func _ready():
@@ -31,6 +33,8 @@ func _physics_process(_delta):
 	direction = direction.normalized()
 	velocity = direction * speed
 	move_and_slide()
+#lane detection
+
 #movement sound
 	if direction.length() > 0:
 		if !footstep_sound.playing:
@@ -50,11 +54,14 @@ func _physics_process(_delta):
 	else:
 		animated_sprite_2d.play("idle")
 		
-	#lane detectiion
+	#serving
 	if Input.is_action_just_pressed("serve"):
-		glass_clink_1.play()
-		print("Serving drink in lane:", current_lane)
-		
-		served_text.visible = true
-		await get_tree().create_timer(0.5).timeout
-		served_text.visible = false
+		if current_lane != null:
+			glass_clink_1.play()
+			print("Serving drink in lane:", current_lane)
+			
+			served_text.visible = true
+			await get_tree().create_timer(0.5).timeout
+			served_text.visible = false
+		else:
+			glass_bottle_break.play()
