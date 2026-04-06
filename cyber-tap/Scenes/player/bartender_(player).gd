@@ -1,4 +1,6 @@
 extends CharacterBody2D
+signal glass_broke
+
 @export var speed : float = 200.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footstep_sound: AudioStreamPlayer2D = $"../FootstepSound"
@@ -64,4 +66,6 @@ func _physics_process(_delta):
 			await get_tree().create_timer(0.5).timeout
 			served_text.visible = false
 		else:
+			# where glass breaks
 			glass_bottle_break.play()
+			glass_broke.emit()

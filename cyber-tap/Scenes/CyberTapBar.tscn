@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d303g3avvyc5x" path="res://Scenes/player/bartender_(player).gd" id="1_hg827"]
 [ext_resource type="Texture2D" uid="uid://j8recrhwvj0m" path="res://Art/Bartender.png" id="2_wxdmf"]
+[ext_resource type="Script" uid="uid://ds8fiu6vebbb7" path="res://Scripts/camera_shake.gd" id="3_ioptu"]
 [ext_resource type="Texture2D" uid="uid://d2huyr0rjbbga" path="res://Art/lanesurface.png" id="3_t6t08"]
 [ext_resource type="Texture2D" uid="uid://btyr7c2y713br" path="res://Art/Customer1.png" id="4_h3com"]
 [ext_resource type="Script" uid="uid://dijljcewjmbwt" path="res://Scripts/bartender_lane_detection.gd" id="4_mkna2"]
@@ -216,6 +217,11 @@ size = Vector2(10, 180)
 size = Vector2(365, 13)
 
 [node name="TheBar" type="Node2D" unique_id=1385653830]
+
+[node name="CameraShake" type="Camera2D" parent="." unique_id=1469948113 node_paths=PackedStringArray("player")]
+position = Vector2(180, 92)
+script = ExtResource("3_ioptu")
+player = NodePath("../Bartender (Player)")
 
 [node name="Bartender (Player)" type="CharacterBody2D" parent="." unique_id=1017337997]
 position = Vector2(217, 73)
