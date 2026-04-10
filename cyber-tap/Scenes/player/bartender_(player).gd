@@ -69,3 +69,9 @@ func _physics_process(_delta):
 			# where glass breaks
 			glass_bottle_break.play()
 			glass_broke.emit()
+
+func _input(event):
+	if event.is_action_pressed("serve"):
+		if current_lane != null:
+			if current_lane.current_customer != null:
+				current_lane.current_customer.serve_customer()

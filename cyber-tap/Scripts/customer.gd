@@ -7,14 +7,20 @@ var current_lane = null
 
 
 func _physics_process(_delta: float) -> void:
-	print("moving")
 	if state == "entering":
-		if position.x < stop_point.global_position.x:
+		if global_position.x < stop_point.global_position.x:
 			velocity.x = speed
 		else:
+			#Snap into place
+			global_position.x = stop_point.global_position.x
 			velocity.x = 0 
 			state = "waiting"
+	elif state == "leaving":
+		velocity.x = -speed
 	else:
 		velocity.x = 0
 	
 	move_and_slide()
+
+func serve_customer():
+	state = "leaving"
