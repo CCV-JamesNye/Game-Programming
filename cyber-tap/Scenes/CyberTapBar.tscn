@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cen6ok8l454ah"]
 
+[ext_resource type="Texture2D" uid="uid://d222bo3ouvw8c" path="res://Art/Cyberpunk neon wood tile grid.png" id="1_1xnqj"]
+[ext_resource type="Texture2D" uid="uid://bnfrnltkqiihx" path="res://Art/customer checkerboard floor (left).png" id="1_fbxgf"]
 [ext_resource type="Script" uid="uid://d303g3avvyc5x" path="res://Scenes/player/bartender_(player).gd" id="1_hg827"]
 [ext_resource type="Texture2D" uid="uid://j8recrhwvj0m" path="res://Art/Bartender.png" id="2_wxdmf"]
 [ext_resource type="Script" uid="uid://ds8fiu6vebbb7" path="res://Scripts/camera_shake.gd" id="3_ioptu"]
@@ -216,6 +218,38 @@ size = Vector2(10, 180)
 size = Vector2(365, 13)
 
 [node name="TheBar" type="Node2D" unique_id=1385653830]
+
+[node name="Floor(Left)" type="Sprite2D" parent="." unique_id=919058996]
+position = Vector2(82, 92.00001)
+scale = Vector2(0.44849998, 0.44849998)
+texture = ExtResource("1_fbxgf")
+
+[node name="ColorRect" type="ColorRect" parent="Floor(Left)" unique_id=1284087917]
+anchors_preset = -1
+anchor_left = -0.21080025
+anchor_top = -0.27233437
+anchor_right = 0.17530715
+anchor_bottom = 0.2342324
+offset_left = -97.498436
+offset_top = -68.961044
+offset_right = 110.78569
+offset_bottom = 83.55269
+color = Color(0.11489687, 0.1148968, 0.11489678, 0.56078434)
+
+[node name="Floor(Right)" type="Sprite2D" parent="." unique_id=80911532]
+position = Vector2(272.21832, 91.74999)
+scale = Vector2(0.27949226, 0.2758789)
+texture = ExtResource("1_1xnqj")
+
+[node name="ColorRect" type="ColorRect" parent="Floor(Right)" unique_id=1223866]
+anchors_preset = -1
+anchor_left = -0.21080025
+anchor_top = -0.27233437
+anchor_right = 0.17530715
+anchor_bottom = 0.2342324
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.11489687, 0.1148968, 0.11489678, 0.56078434)
 
 [node name="CameraShake" type="Camera2D" parent="." unique_id=1469948113 node_paths=PackedStringArray("player")]
 position = Vector2(180, 92)
