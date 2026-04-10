@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://btyr7c2y713br" path="res://Art/Customer1.png" id="4_h3com"]
 [ext_resource type="Script" uid="uid://dijljcewjmbwt" path="res://Scripts/bartender_lane_detection.gd" id="4_mkna2"]
 [ext_resource type="AudioStream" uid="uid://bgfh8f7nvjlq8" path="res://Audio/Sound FX/freesounds123-walking-on-wood.wav" id="6_8i2kk"]
+[ext_resource type="Script" uid="uid://u7fr4rnd18q2" path="res://Scripts/customer.gd" id="6_21guv"]
 [ext_resource type="AudioStream" uid="uid://cq1i4es3n2xuv" path="res://Audio/Sound FX/freesound_community-glass-clink.wav" id="7_18en6"]
 [ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="8_18en6"]
 [ext_resource type="AudioStream" uid="uid://bjcf1ailoikg" path="res://Audio/Sound FX/glass-break-bottle-universfield.wav" id="8_dc2m4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgyi3"]
-size = Vector2(23, 29)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ioptu"]
+radius = 5.0249376
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uypo1"]
 atlas = ExtResource("2_wxdmf")
@@ -189,9 +190,6 @@ cache/0/8/0/underline_position = 0.0
 cache/0/8/0/underline_thickness = 0.0
 cache/0/8/0/scale = 1.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w5oem"]
-normal = Vector2(1, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggknq"]
 size = Vector2(0, 184)
 
@@ -225,11 +223,12 @@ player = NodePath("../Bartender (Player)")
 
 [node name="Bartender (Player)" type="CharacterBody2D" parent="." unique_id=1017337997]
 position = Vector2(217, 73)
+collision_layer = 2
 script = ExtResource("1_hg827")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bartender (Player)" unique_id=1596841768]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_xgyi3")
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_ioptu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bartender (Player)" unique_id=1738631595]
 texture_filter = 1
@@ -248,9 +247,6 @@ text = "Served!"
 
 [node name="BartenderBoundary" type="StaticBody2D" parent="." unique_id=1854301777]
 position = Vector2(165, 91)
-
-[node name="worldboundary" type="CollisionShape2D" parent="BartenderBoundary" unique_id=1881007776]
-shape = SubResource("WorldBoundaryShape2D_w5oem")
 
 [node name="physicalboundary" type="CollisionShape2D" parent="BartenderBoundary" unique_id=1740292338]
 shape = SubResource("RectangleShape2D_ggknq")
@@ -275,10 +271,14 @@ color = Color(0.29803923, 0, 0.47058824, 0.60784316)
 
 [node name="Customer Zone" type="Area2D" parent="Lane1" unique_id=1308113834]
 position = Vector2(-32, -25)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lane1/Customer Zone" unique_id=1629799166]
 shape = SubResource("RectangleShape2D_mkna2")
 debug_color = Color(1, 0.2784314, 0, 0.7176471)
+
+[node name="StopPoint" type="Marker2D" parent="Lane1/Customer Zone" unique_id=992366754]
+position = Vector2(50, 0)
 
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane1" unique_id=557198821]
 position = Vector2(83, -7)
@@ -395,8 +395,13 @@ position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
 
-[node name="Customer" type="CharacterBody2D" parent="." unique_id=1522405200]
-position = Vector2(64, 46)
+[node name="Customer" type="CharacterBody2D" parent="." unique_id=1522405200 node_paths=PackedStringArray("stop_point")]
+position = Vector2(-100, 46)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_21guv")
+speed = 25.0
+stop_point = NodePath("../Lane1/Customer Zone/StopPoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Customer" unique_id=375246275]
 position = Vector2(0.5, 0.5)
