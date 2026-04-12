@@ -22,6 +22,7 @@ func spawn_customer() -> void:
 	add_child(current_customer)
 	current_customer.global_position = global_position
 	var chosen_stop_point = stop_points.pick_random()
+	current_customer.global_position.y = chosen_stop_point.global_position.y
 	current_customer.stop_point = chosen_stop_point
 	print("Chosen stop point:", chosen_stop_point.global_position)
 
