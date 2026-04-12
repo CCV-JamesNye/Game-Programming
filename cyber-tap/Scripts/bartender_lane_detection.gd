@@ -5,7 +5,7 @@ extends Area2D
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		print("Bartender entered lane:", lane_index)
-		body.current_lane = lane_index
+		body.current_lane = get_parent()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:

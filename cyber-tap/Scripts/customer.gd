@@ -19,8 +19,11 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = -speed
 	else:
 		velocity.x = 0
-	
 	move_and_slide()
-
+	
+	if state == "leaving" and global_position.x < -20:
+		get_parent().spawn_after_delay()
+		queue_free()
+		
 func serve_customer():
 	state = "leaving"

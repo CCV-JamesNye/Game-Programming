@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://j8recrhwvj0m" path="res://Art/Bartender.png" id="2_wxdmf"]
 [ext_resource type="Script" uid="uid://ds8fiu6vebbb7" path="res://Scripts/camera_shake.gd" id="3_ioptu"]
 [ext_resource type="Texture2D" uid="uid://d2huyr0rjbbga" path="res://Art/lanesurface.png" id="3_t6t08"]
-[ext_resource type="Texture2D" uid="uid://btyr7c2y713br" path="res://Art/Customer1.png" id="4_h3com"]
 [ext_resource type="Script" uid="uid://dijljcewjmbwt" path="res://Scripts/bartender_lane_detection.gd" id="4_mkna2"]
 [ext_resource type="Script" uid="uid://kia07o7hmss" path="res://Scripts/lane.gd" id="4_yfl2y"]
 [ext_resource type="AudioStream" uid="uid://bgfh8f7nvjlq8" path="res://Audio/Sound FX/freesounds123-walking-on-wood.wav" id="6_8i2kk"]
-[ext_resource type="Script" uid="uid://u7fr4rnd18q2" path="res://Scripts/customer.gd" id="6_21guv"]
 [ext_resource type="AudioStream" uid="uid://cq1i4es3n2xuv" path="res://Audio/Sound FX/freesound_community-glass-clink.wav" id="7_18en6"]
 [ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="8_18en6"]
 [ext_resource type="AudioStream" uid="uid://bjcf1ailoikg" path="res://Audio/Sound FX/glass-break-bottle-universfield.wav" id="8_dc2m4"]
+[ext_resource type="PackedScene" uid="uid://147cmmt20m2n" path="res://Scenes/customer.tscn" id="9_fbxgf"]
+[ext_resource type="Script" uid="uid://dne652pk4kc5d" path="res://Scripts/customer_spawner.gd" id="10_belka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioptu"]
 radius = 5.0249376
@@ -205,9 +205,6 @@ size = Vector2(99, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6t08"]
 radius = 14.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2kk"]
-size = Vector2(19, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18en6"]
 size = Vector2(363, 10)
 
@@ -288,6 +285,7 @@ shape = SubResource("RectangleShape2D_ggknq")
 
 [node name="Lane1" type="StaticBody2D" parent="." unique_id=1835425432]
 position = Vector2(82, 170)
+script = ExtResource("4_yfl2y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lane1" unique_id=908667948]
 shape = SubResource("RectangleShape2D_uypo1")
@@ -306,8 +304,7 @@ color = Color(0.29803923, 0, 0.47058824, 0.60784316)
 
 [node name="Customer Zone" type="Area2D" parent="Lane1" unique_id=1308113834]
 position = Vector2(-32, -25)
-collision_mask = 2
-script = ExtResource("4_yfl2y")
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lane1/Customer Zone" unique_id=1629799166]
 shape = SubResource("RectangleShape2D_mkna2")
@@ -352,6 +349,9 @@ position = Vector2(-32, -25)
 shape = SubResource("RectangleShape2D_mkna2")
 debug_color = Color(1, 0.2784314, 0, 0.7176471)
 
+[node name="StopPoint2" type="Marker2D" parent="Lane2/Customer Zone" unique_id=274657443]
+position = Vector2(49, 2)
+
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane2" unique_id=2006898187]
 position = Vector2(83, -7)
 collision_mask = 2
@@ -387,6 +387,9 @@ position = Vector2(-32, -25)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lane3/Customer Zone" unique_id=1872138856]
 shape = SubResource("RectangleShape2D_mkna2")
 debug_color = Color(1, 0.2784314, 0, 0.7176471)
+
+[node name="StopPoint3" type="Marker2D" parent="Lane3/Customer Zone" unique_id=537877180]
+position = Vector2(50, 0)
 
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane3" unique_id=1705357842]
 position = Vector2(83, -7)
@@ -424,6 +427,9 @@ position = Vector2(-32, -25)
 shape = SubResource("RectangleShape2D_mkna2")
 debug_color = Color(1, 0.2784314, 0, 0.7176471)
 
+[node name="StopPoint4" type="Marker2D" parent="Lane4/Customer Zone" unique_id=761458043]
+position = Vector2(49, 0)
+
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane4" unique_id=678118495]
 position = Vector2(83, -7)
 collision_mask = 3
@@ -435,30 +441,17 @@ position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
 
-[node name="Customer" type="CharacterBody2D" parent="." unique_id=1522405200 node_paths=PackedStringArray("stop_point")]
-position = Vector2(-12, 143)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_21guv")
-speed = 50.0
-stop_point = NodePath("../Lane1/Customer Zone/StopPoint")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer" unique_id=375246275]
-position = Vector2(0.5, 10.5)
-shape = SubResource("RectangleShape2D_8i2kk")
-
-[node name="Sprite2D" type="Sprite2D" parent="Customer" unique_id=155505021]
-texture_filter = 1
-texture = ExtResource("4_h3com")
-hframes = 3
-vframes = 4
-
-[node name="FootstepSound" type="AudioStreamPlayer2D" parent="." unique_id=1033946045]
-stream = ExtResource("6_8i2kk")
-pitch_scale = 1.2
+[node name="CustomerSpawner" type="Node2D" parent="." unique_id=1030132001]
+position = Vector2(-12, 144)
+script = ExtResource("10_belka")
+customer_scene = ExtResource("9_fbxgf")
 
 [node name="GlassClink1" type="AudioStreamPlayer2D" parent="." unique_id=1357850782]
 stream = ExtResource("7_18en6")
+pitch_scale = 1.2
+
+[node name="FootstepSound" type="AudioStreamPlayer2D" parent="." unique_id=1033946045]
+stream = ExtResource("6_8i2kk")
 pitch_scale = 1.2
 
 [node name="GlassBottleBreak" type="AudioStreamPlayer2D" parent="." unique_id=1766547783]

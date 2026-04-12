@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://147cmmt20m2n"]
+
+[ext_resource type="Script" uid="uid://u7fr4rnd18q2" path="res://Scripts/customer.gd" id="1_7c3kf"]
+[ext_resource type="Texture2D" uid="uid://btyr7c2y713br" path="res://Art/Customer1.png" id="2_0v30w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i2kk"]
+size = Vector2(19, 11)
+
+[node name="Customer" type="CharacterBody2D" unique_id=1862757327 node_paths=PackedStringArray("stop_point")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_7c3kf")
+speed = 50.0
+stop_point = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122244181]
+position = Vector2(0.5, 10.5)
+shape = SubResource("RectangleShape2D_8i2kk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855874192]
+texture_filter = 1
+texture = ExtResource("2_0v30w")
+hframes = 3
+vframes = 4
