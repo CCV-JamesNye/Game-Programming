@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ca4mkp3n2h4wl"]
+
+[ext_resource type="Texture2D" uid="uid://c3tyvo7yorlro" path="res://Art/stout-glass.png" id="1_78m4n"]
+
+[node name="HealthBar" type="CanvasLayer" unique_id=1612167857]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=219024297]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_top = 12.0
+offset_right = -2.0
+offset_bottom = 27.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Life1" type="Sprite2D" parent="HBoxContainer" unique_id=1161433946]
+texture_filter = 1
+position = Vector2(15, 8)
+texture = ExtResource("1_78m4n")
+
+[node name="Life2" type="Sprite2D" parent="HBoxContainer" unique_id=2142958440]
+texture_filter = 1
+position = Vector2(37, 8)
+texture = ExtResource("1_78m4n")
+
+[node name="Life3" type="Sprite2D" parent="HBoxContainer" unique_id=1305263196]
+texture_filter = 1
+position = Vector2(60, 8)
+texture = ExtResource("1_78m4n")

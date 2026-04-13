@@ -58,17 +58,19 @@ func _physics_process(_delta):
 		
 	#serving
 	if Input.is_action_just_pressed("serve"):
-		if current_lane != null:
+		if current_lane == null:
+			glass_bottle_break.play()
+			glass_broke.emit()
+		elif current_lane.current_customer == null:
+			glass_bottle_break.play()
+			glass_broke.emit()
+		else:
 			glass_clink_1.play()
 			print("Serving drink in lane:", current_lane)
 			
 			served_text.visible = true
 			await get_tree().create_timer(0.5).timeout
 			served_text.visible = false
-		else:
-			# where glass breaks
-			glass_bottle_break.play()
-			glass_broke.emit()
 
 func _input(event):
 	if event.is_action_pressed("serve"):
