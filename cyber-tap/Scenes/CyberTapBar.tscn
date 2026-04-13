@@ -499,9 +499,11 @@ shape = SubResource("RectangleShape2D_ioptu")
 process_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=723078137]
-offset_right = 210.0
-offset_bottom = 180.0
-color = Color(0, 0, 0, 0.72156864)
+offset_left = 7.0
+offset_top = 13.0
+offset_right = 204.0
+offset_bottom = 171.0
+color = Color(0.3137255, 0.37254903, 1, 1)
 
 [node name="Panel" type="Panel" parent="PauseMenu" unique_id=967273204]
 modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
@@ -537,6 +539,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("17_b0jud")
 theme_override_font_sizes/font_size = 20
 text = "Quit Game"
+
+[node name="ColorRect2" type="ColorRect" parent="PauseMenu" unique_id=437454723]
+offset_left = 211.0
+offset_top = 116.0
+offset_right = 344.0
+offset_bottom = 156.0
+color = Color(0.85490197, 0.09803922, 0.7176471, 0.9372549)
 
 [node name="ToggleShake" type="Button" parent="PauseMenu" unique_id=137735858]
 offset_left = 214.0
