@@ -498,6 +498,11 @@ shape = SubResource("RectangleShape2D_ioptu")
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1458031228]
 process_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=723078137]
+offset_right = 210.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.72156864)
+
 [node name="Panel" type="Panel" parent="PauseMenu" unique_id=967273204]
 modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
 anchors_preset = 15
@@ -508,10 +513,10 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=892588853]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 18.0
-offset_right = 289.0
-offset_bottom = 168.0
+offset_left = 14.0
+offset_top = 23.0
+offset_right = 197.0
+offset_bottom = 173.0
 theme_override_constants/separation = 23
 
 [node name="GamePausedLabel" type="Label" parent="PauseMenu/Panel/VBoxContainer" unique_id=1398985226]
@@ -532,6 +537,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("17_b0jud")
 theme_override_font_sizes/font_size = 20
 text = "Quit Game"
+
+[node name="ToggleShake" type="Button" parent="PauseMenu" unique_id=137735858]
+offset_left = 214.0
+offset_top = 119.0
+offset_right = 341.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 13
+text = "Camera Shake: On"
 
 [connection signal="body_entered" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_entered"]
 [connection signal="body_exited" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_exited"]

@@ -1,5 +1,6 @@
 extends Node2D
 var lives := 3
+var camera_shake_enabled :=true
 
 @onready var bartender__player_: CharacterBody2D = $"Bartender (Player)"
 @onready var life_1: Sprite2D = $HealthBar/HBoxContainer/Life1
@@ -8,6 +9,7 @@ var lives := 3
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var resume_game: Button = $PauseMenu/Panel/VBoxContainer/ResumeGame
 @onready var quit_game: Button = $PauseMenu/Panel/VBoxContainer/QuitGame
+@onready var toggle_shake: Button = $PauseMenu/ToggleShake
 
 func _ready() -> void:
 	bartender__player_.glass_broke.connect(_on_glass_broke)
@@ -15,11 +17,22 @@ func _ready() -> void:
 	resume_game.pressed.connect(_on_resume_pressed)
 	quit_game.pressed.connect(_on_quit_pressed)
 	pause_menu.visible = false
+	toggle_shake.pressed.connect(_on_toggle_shake_pressed)
+	update_shake_button_text()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
 
+func _on_toggle_shake_pressed() -> void:
+	camera_shake_enabled = not camera_shake_enabled
+	update_shake_button_text()
+	
+func update_shake_button_text() -> void:
+	if camera_shake_enabled:
+		toggle_shake.text = "Camera Shake: On"
+	else:
+		toggle_shake.text = "Camera Shake: Off"
 func toggle_pause() -> void:
 	get_tree().paused = not get_tree().paused
 	pause_menu.visible = get_tree().paused
@@ -31,6 +44,7 @@ func _on_resume_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
 func _on_glass_broke() -> void:
 	lives -= 1
 	update_lives_ui()

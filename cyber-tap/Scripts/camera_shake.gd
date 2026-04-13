@@ -5,7 +5,7 @@ extends Camera2D
 @export var shake_decay : float = 1.0
 @export var shake_trauma : float = 0
 @export_range(0,1,0.05, "or greater") var shake_power : float = 0.5
-
+@onready var bar_logic = get_parent()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +20,9 @@ func _physics_process(delta: float) -> void:
 		shake()
 		
 func shake_camera(value: float = 1.0) -> void:
+	if not bar_logic.camera_shake_enabled:
+		return
+		
 	shake_trauma = min(shake_trauma + value, 1.0)
 	
 func shake() -> void:
