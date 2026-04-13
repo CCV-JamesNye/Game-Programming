@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dht1ti4uanbns"]
 
 [ext_resource type="Texture2D" uid="uid://c4btcq3y8krck" path="res://Art/Menu Frame.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://ce1g0ib55y2ad" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="FontFile" uid="uid://dynq214f087as" path="res://Art/Fonts/Orbitron-VariableFont_wght.ttf" id="3_1ehe0"]
 
 [node name="Main Menu" type="Control" unique_id=561998046]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48xlc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1740925767]
 layout_mode = 0
@@ -38,17 +41,21 @@ theme_override_constants/separation = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(1, 0.44313726, 1, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_font_sizes/font_size = 20
 text = "CyberTap"
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=474313250]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_font_sizes/font_size = 15
 text = "Start Game"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1929819385]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_font_sizes/font_size = 15
 text = "Quit Game"

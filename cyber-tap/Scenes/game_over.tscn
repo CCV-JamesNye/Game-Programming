@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cjio20724thhb"]
+
+[ext_resource type="Script" uid="uid://l1m06rb8p1ly" path="res://Scripts/game_over.gd" id="1_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://d3pj7g1immc1e" path="res://Art/ClosedBar.png" id="2_eoghk"]
+[ext_resource type="FontFile" uid="uid://dynq214f087as" path="res://Art/Fonts/Orbitron-VariableFont_wght.ttf" id="3_14u15"]
+
+[node name="GameOver" type="Control" unique_id=2127612383]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ek8ke")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2091295873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eoghk")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2117317432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 106.0
+offset_top = 29.0
+offset_right = -93.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=596893370]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_14u15")
+theme_override_font_sizes/font_size = 25
+text = "Game Over!"
+
+[node name="TryAgain" type="Button" parent="VBoxContainer" unique_id=285828779]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_14u15")
+theme_override_font_sizes/font_size = 20
+text = "Try Again"
+
+[node name="QuitGame" type="Button" parent="VBoxContainer" unique_id=804054227]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_14u15")
+theme_override_font_sizes/font_size = 15
+text = "Quit Game"
