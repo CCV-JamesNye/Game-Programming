@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmbiw27rom6b8"]
+
+[ext_resource type="Script" uid="uid://63vnpjw5k5qb" path="res://Scripts/drink.gd" id="1_23ypx"]
+[ext_resource type="Texture2D" uid="uid://c3tyvo7yorlro" path="res://Art/stout-glass.png" id="1_u3b8d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23ypx"]
+size = Vector2(9, 8)
+
+[node name="Drink" type="Area2D" unique_id=1410985590]
+script = ExtResource("1_23ypx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265487375]
+texture_filter = 1
+texture = ExtResource("1_u3b8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=89284373]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_23ypx")

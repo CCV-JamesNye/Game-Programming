@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dijljcewjmbwt" path="res://Scripts/bartender_lane_detection.gd" id="4_mkna2"]
 [ext_resource type="Script" uid="uid://kia07o7hmss" path="res://Scripts/lane.gd" id="4_yfl2y"]
 [ext_resource type="AudioStream" uid="uid://bgfh8f7nvjlq8" path="res://Audio/Sound FX/freesounds123-walking-on-wood.wav" id="6_8i2kk"]
+[ext_resource type="PackedScene" uid="uid://dmbiw27rom6b8" path="res://Scenes/drink.tscn" id="6_d7njm"]
 [ext_resource type="AudioStream" uid="uid://cq1i4es3n2xuv" path="res://Audio/Sound FX/freesound_community-glass-clink.wav" id="7_18en6"]
 [ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="8_18en6"]
 [ext_resource type="AudioStream" uid="uid://bjcf1ailoikg" path="res://Audio/Sound FX/glass-break-bottle-universfield.wav" id="8_dc2m4"]
@@ -261,6 +262,7 @@ player = NodePath("../Bartender (Player)")
 position = Vector2(217, 73)
 collision_layer = 2
 script = ExtResource("1_hg827")
+drink_scene = ExtResource("6_d7njm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bartender (Player)" unique_id=1596841768]
 position = Vector2(0, 13)
@@ -306,6 +308,9 @@ offset_right = 84.0
 offset_bottom = 11.0
 color = Color(0.29803923, 0, 0.47058824, 0.60784316)
 
+[node name="ServeStartPoint1" type="Marker2D" parent="Lane1" unique_id=1928262277]
+position = Vector2(84, -26)
+
 [node name="Customer Zone" type="Area2D" parent="Lane1" unique_id=1308113834]
 position = Vector2(-32, -25)
 collision_mask = 4
@@ -346,6 +351,9 @@ offset_top = -20.0
 offset_right = 84.0
 offset_bottom = 11.0
 color = Color(0, 0.24705882, 0.20784314, 0.60784316)
+
+[node name="ServeStartPoint2" type="Marker2D" parent="Lane2" unique_id=292008308]
+position = Vector2(84, -26)
 
 [node name="Customer Zone" type="Area2D" parent="Lane2" unique_id=1331618409]
 position = Vector2(-32, -25)
@@ -388,6 +396,9 @@ offset_right = 84.0
 offset_bottom = 11.0
 color = Color(0.4117647, 0, 0.12156863, 0.60784316)
 
+[node name="ServeStartPoint3" type="Marker2D" parent="Lane3" unique_id=954597859]
+position = Vector2(84, -26)
+
 [node name="Customer Zone" type="Area2D" parent="Lane3" unique_id=274200465]
 position = Vector2(-32, -25)
 collision_mask = 4
@@ -428,6 +439,9 @@ offset_top = -20.0
 offset_right = 84.0
 offset_bottom = 11.0
 color = Color(0.25882354, 0.20392157, 0, 0.60784316)
+
+[node name="ServeStartPoint4" type="Marker2D" parent="Lane4" unique_id=925549668]
+position = Vector2(84, -26)
 
 [node name="Customer Zone" type="Area2D" parent="Lane4" unique_id=1224053492]
 position = Vector2(-32, -25)
@@ -497,6 +511,7 @@ shape = SubResource("RectangleShape2D_ioptu")
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1458031228]
 process_mode = 2
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=723078137]
 offset_left = 7.0

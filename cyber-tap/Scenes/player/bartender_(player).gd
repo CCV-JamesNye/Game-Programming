@@ -2,6 +2,7 @@ extends CharacterBody2D
 signal glass_broke
 
 @export var speed : float = 200.0
+@export var drink_scene: PackedScene
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var footstep_sound: AudioStreamPlayer2D = $"../FootstepSound"
 @onready var glass_clink_1: AudioStreamPlayer2D = $"../GlassClink1"
@@ -67,13 +68,30 @@ func _physics_process(_delta):
 		else:
 			glass_clink_1.play()
 			print("Serving drink in lane:", current_lane)
+			launch_drink()
 			
 			served_text.visible = true
 			await get_tree().create_timer(0.5).timeout
 			served_text.visible = false
 
-func _input(event):
-	if event.is_action_pressed("serve"):
-		if current_lane != null:
-			if current_lane.current_customer != null:
-				current_lane.current_customer.serve_customer()
+#func _input(event):
+#	if event.is_action_pressed("serve"):
+#		if current_lane != null:
+#			if current_lane.current_customer != null:
+#				current_lane.current_customer.serve_customer()
+
+func launch_drink() -> void:
+	var drink = drink_scene.instantiate()
+	get_parent().add_child(drink)
+	
+	var start_position = global_position
+	var end_position = current_lane.get_stop_point_global_position()
+	
+	drink.arrived.connect(_on_drink_arrived)
+	drink.launch(start_position, end_position, current_lane)
+	
+func _on_drink_arrived(drink, lane) -> void:
+	if lane.current_customer != null:
+		lane.current_customer.serve_customer()
+		
+	drink.queue_free()
