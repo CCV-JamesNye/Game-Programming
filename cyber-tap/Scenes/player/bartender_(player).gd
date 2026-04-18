@@ -84,12 +84,17 @@ func launch_drink() -> void:
 	var drink = drink_scene.instantiate()
 	get_parent().add_child(drink)
 	
-	var start_position = global_position
-	var end_position = current_lane.get_stop_point_global_position()
+	var path_follow = current_lane.get_drink_path_follow()
 	
 	drink.arrived.connect(_on_drink_arrived)
-	drink.launch(start_position, end_position, current_lane)
 	
+	if path_follow != null:
+		drink.launch_on_path(path_follow, current_lane)
+	else:
+		var start_position = current_lane.get_serve_start_global_position()
+		var end_position = current_lane.get_stop_point_global_position()
+		drink.launch(start_position, end_position, current_lane)
+		
 func _on_drink_arrived(drink, lane) -> void:
 	if lane.current_customer != null:
 		lane.current_customer.serve_customer()

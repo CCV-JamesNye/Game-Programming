@@ -209,6 +209,12 @@ size = Vector2(99, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6t08"]
 radius = 14.0
 
+[sub_resource type="Curve2D" id="Curve2D_d7njm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 82.01471, -8.6923065, 0, 0, 0, 0, 13.044121, -1.7692261)
+}
+point_count = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18en6"]
 size = Vector2(363, 10)
 
@@ -322,6 +328,9 @@ debug_color = Color(1, 0.2784314, 0, 0.7176471)
 [node name="StopPoint" type="Marker2D" parent="Lane1/Customer Zone" unique_id=992366754]
 position = Vector2(50, 0)
 
+[node name="QueuePoint1" type="Marker2D" parent="Lane1/Customer Zone" unique_id=2014324589]
+position = Vector2(19, 0)
+
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane1" unique_id=557198821]
 position = Vector2(83, -7)
 collision_mask = 2
@@ -332,6 +341,16 @@ lane_index = 1
 position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
+
+[node name="DrinkPath" type="Path2D" parent="Lane1" unique_id=161041841]
+position = Vector2(7.0850716, -11.544071)
+scale = Vector2(0.91343284, -0.062592566)
+curve = SubResource("Curve2D_d7njm")
+
+[node name="DrinkPathFollow" type="PathFollow2D" parent="Lane1/DrinkPath" unique_id=1141981167]
+position = Vector2(82.01471, -8.6923065)
+rotation = 3.0415504
+loop = false
 
 [node name="Lane2" type="StaticBody2D" parent="." unique_id=146333551]
 position = Vector2(82, 126)
@@ -377,6 +396,16 @@ position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
 
+[node name="DrinkPath" type="Path2D" parent="Lane2" unique_id=1542840645]
+position = Vector2(7.0850716, -11.544071)
+scale = Vector2(0.91343284, -0.062592566)
+curve = SubResource("Curve2D_d7njm")
+
+[node name="DrinkPathFollow" type="PathFollow2D" parent="Lane2/DrinkPath" unique_id=1572481249]
+position = Vector2(82.01471, -8.6923065)
+rotation = 3.0415504
+loop = false
+
 [node name="Lane3" type="StaticBody2D" parent="." unique_id=464481605]
 position = Vector2(82, 82)
 script = ExtResource("4_yfl2y")
@@ -421,6 +450,16 @@ position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
 
+[node name="DrinkPath" type="Path2D" parent="Lane3" unique_id=919740499]
+position = Vector2(7.0850716, -11.544071)
+scale = Vector2(0.91343284, -0.062592566)
+curve = SubResource("Curve2D_d7njm")
+
+[node name="DrinkPathFollow" type="PathFollow2D" parent="Lane3/DrinkPath" unique_id=1372443213]
+position = Vector2(82.01471, -8.6923065)
+rotation = 3.0415504
+loop = false
+
 [node name="Lane4" type="StaticBody2D" parent="." unique_id=1014079764]
 position = Vector2(82, 38)
 script = ExtResource("4_yfl2y")
@@ -464,6 +503,16 @@ lane_index = 4
 position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_t6t08")
 debug_color = Color(0, 0.54241186, 0.1559813, 0.41960785)
+
+[node name="DrinkPath" type="Path2D" parent="Lane4" unique_id=1453782943]
+position = Vector2(7.0850716, -11.544071)
+scale = Vector2(0.91343284, -0.062592566)
+curve = SubResource("Curve2D_d7njm")
+
+[node name="DrinkPathFollow" type="PathFollow2D" parent="Lane4/DrinkPath" unique_id=1952906973]
+position = Vector2(82.01471, -8.6923065)
+rotation = 3.0415504
+loop = false
 
 [node name="CustomerSpawner" type="Node2D" parent="." unique_id=1030132001]
 position = Vector2(-12, 144)
