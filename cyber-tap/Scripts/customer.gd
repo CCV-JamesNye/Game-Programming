@@ -28,3 +28,7 @@ func _physics_process(_delta: float) -> void:
 		
 func serve_customer():
 	state = "leaving"
+	
+func move_to_position(new_target_position: Vector2) -> void:
+	target_position = new_target_position
+	state = "entering"

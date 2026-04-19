@@ -68,3 +68,7 @@ func serve_front_customer() -> void:
 	customer_queue.erase(front_customer)
 	
 	current_customer = get_front_customer()
+	
+	if current_customer != null:
+		current_customer.move_to_position(get_stop_point_global_position())
+	
