@@ -385,6 +385,9 @@ debug_color = Color(1, 0.2784314, 0, 0.7176471)
 [node name="StopPoint2" type="Marker2D" parent="Lane2/Customer Zone" unique_id=274657443]
 position = Vector2(49, 2)
 
+[node name="QueuePoint1" type="Marker2D" parent="Lane2/Customer Zone" unique_id=1817867917]
+position = Vector2(19, 0)
+
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane2" unique_id=2006898187]
 position = Vector2(83, -7)
 collision_mask = 2
@@ -439,6 +442,9 @@ debug_color = Color(1, 0.2784314, 0, 0.7176471)
 [node name="StopPoint3" type="Marker2D" parent="Lane3/Customer Zone" unique_id=537877180]
 position = Vector2(50, 0)
 
+[node name="QueuePoint1" type="Marker2D" parent="Lane3/Customer Zone" unique_id=153470921]
+position = Vector2(19, 0)
+
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane3" unique_id=1705357842]
 position = Vector2(83, -7)
 collision_mask = 3
@@ -492,6 +498,9 @@ debug_color = Color(1, 0.2784314, 0, 0.7176471)
 
 [node name="StopPoint4" type="Marker2D" parent="Lane4/Customer Zone" unique_id=761458043]
 position = Vector2(49, 0)
+
+[node name="QueuePoint1" type="Marker2D" parent="Lane4/Customer Zone" unique_id=1594593255]
+position = Vector2(19, 0)
 
 [node name="BartenderLaneDetection" type="Area2D" parent="Lane4" unique_id=678118495]
 position = Vector2(83, -7)

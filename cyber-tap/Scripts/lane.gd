@@ -43,3 +43,12 @@ func get_queue_point_global_position() -> Vector2:
 		return get_stop_point_global_position()
 		
 	return queue_point.global_position
+
+func add_customer_to_queue(customer) -> Vector2:
+	customer_queue.append(customer)
+	
+	if customer_queue.size() == 1:
+		current_customer = customer
+		return get_stop_point_global_position()
+		
+	return get_queue_point_global_position()

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var speed: float = 100.00
 @export var stop_point: Node2D
+var target_position: Vector2
 
 var state = "entering"
 var current_lane = null
@@ -8,12 +9,12 @@ var current_lane = null
 
 func _physics_process(_delta: float) -> void:
 	if state == "entering":
-		if global_position.x < stop_point.global_position.x:
+		if global_position.x < target_position.x:
 			velocity.x = speed
 		else:
-			#Snap into place
-			global_position.x = stop_point.global_position.x
-			velocity.x = 0 
+			#snap into place
+			global_position.x = target_position.x
+			velocity.x = 0
 			state = "waiting"
 	elif state == "leaving":
 		velocity.x = -speed
