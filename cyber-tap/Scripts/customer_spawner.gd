@@ -48,4 +48,4 @@ func start_spawning() -> void:
 	while spawning_enabled:
 		spawn_customer()
 		var delay = randf_range(min_spawn_delay, max_spawn_delay)
-		await get_tree().create_timer(delay).timeout
+		await get_tree().create_timer(delay, false).timeout

@@ -52,3 +52,19 @@ func add_customer_to_queue(customer) -> Vector2:
 		return get_stop_point_global_position()
 		
 	return get_queue_point_global_position()
+	
+func get_front_customer():
+	if customer_queue.is_empty():
+		return null
+	return customer_queue[0]
+	
+func serve_front_customer() -> void:
+	var front_customer = get_front_customer()
+	
+	if front_customer == null:
+		return
+		
+	front_customer.serve_customer()
+	customer_queue.erase(front_customer)
+	
+	current_customer = get_front_customer()

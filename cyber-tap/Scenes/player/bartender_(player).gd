@@ -96,7 +96,5 @@ func launch_drink() -> void:
 		drink.launch(start_position, end_position, current_lane)
 		
 func _on_drink_arrived(drink, lane) -> void:
-	if lane.current_customer != null:
-		lane.current_customer.serve_customer()
-		
+	lane.serve_front_customer()
 	drink.queue_free()
