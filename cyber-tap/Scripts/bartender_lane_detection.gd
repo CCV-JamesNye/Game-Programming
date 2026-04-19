@@ -10,4 +10,6 @@ func _on_body_entered(body):
 func _on_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		print("Bartender exited lane:", lane_index)
-		body.current_lane = null
+		
+		if body.current_lane == get_parent():
+			body.current_lane = null
