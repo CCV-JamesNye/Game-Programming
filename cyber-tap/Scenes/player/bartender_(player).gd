@@ -62,7 +62,7 @@ func _physics_process(_delta):
 		if current_lane == null:
 			glass_bottle_break.play()
 			glass_broke.emit()
-		elif current_lane.current_customer == null:
+		elif current_lane.get_front_customer() == null:
 			glass_bottle_break.play()
 			glass_broke.emit()
 		else:
