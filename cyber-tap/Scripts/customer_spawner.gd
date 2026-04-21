@@ -57,6 +57,7 @@ func spawn_customer() -> void:
 	current_customer.global_position.y = target_position.y
 	current_customer.stop_point = chosen_lane
 	print("Chosen lane:", chosen_lane.name, " target:", target_position)
+	
 func spawn_after_delay() -> void:
 	pass
 	

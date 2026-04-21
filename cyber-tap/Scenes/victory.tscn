@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dew3r1e6bsi3c"]
+
+[ext_resource type="Script" uid="uid://b5bho74dwvbg4" path="res://Scripts/victory.gd" id="1_pyhgl"]
+[ext_resource type="Texture2D" uid="uid://cvqkjesdyal0f" path="res://Art/Victory Scene Background (Small).png" id="2_o3goa"]
+
+[node name="Victory" type="Control" unique_id=1220668994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pyhgl")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=187746370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496728395]
+texture_filter = 1
+position = Vector2(180.99998, 88.499985)
+scale = Vector2(0.49999997, 0.37708333)
+texture = ExtResource("2_o3goa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=587686015]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -47.0
+offset_right = 59.0
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=434216352]
+layout_mode = 2
+text = "Shift Complete!"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="VBoxContainer" unique_id=1160257771]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="QuitGame" type="Button" parent="VBoxContainer" unique_id=473474766]
+layout_mode = 2
+text = "Quit Game
+"

@@ -98,3 +98,6 @@ func launch_drink() -> void:
 func _on_drink_arrived(drink, lane) -> void:
 	lane.serve_front_customer()
 	drink.queue_free()
+	
+	if get_parent().has_method("register_customer_served"):
+		get_parent().register_customer_served()

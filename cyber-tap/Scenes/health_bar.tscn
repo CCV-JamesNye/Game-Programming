@@ -4,6 +4,18 @@
 
 [node name="HealthBar" type="CanvasLayer" unique_id=1612167857]
 
+[node name="LevelProgressLabel" type="Label" parent="." unique_id=1429866533]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_top = 8.0
+offset_right = 39.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Level 1   Served: 0/5"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=219024297]
 anchors_preset = 1
 anchor_left = 1.0

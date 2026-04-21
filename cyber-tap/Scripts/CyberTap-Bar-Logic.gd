@@ -1,4 +1,9 @@
 extends Node2D
+
+@export var level_name: String = "Level 1"
+@export var customers_to_win: int = 5
+
+var customers_served := 0
 var lives := 3
 var camera_shake_enabled :=true
 
@@ -10,6 +15,10 @@ var camera_shake_enabled :=true
 @onready var resume_game: Button = $PauseMenu/Panel/VBoxContainer/ResumeGame
 @onready var quit_game: Button = $PauseMenu/Panel/VBoxContainer/QuitGame
 @onready var toggle_shake: Button = $PauseMenu/ToggleShake
+@onready var level_progress_label: Label = $HealthBar/LevelProgressLabel
+@onready var music_volume_slider: HSlider = $PauseMenu/MusicVolumeSlider
+
+
 
 func _ready() -> void:
 	bartender__player_.glass_broke.connect(_on_glass_broke)
@@ -19,7 +28,12 @@ func _ready() -> void:
 	pause_menu.visible = false
 	toggle_shake.pressed.connect(_on_toggle_shake_pressed)
 	update_shake_button_text()
-	
+	update_level_progress_ui()
+	music_volume_slider.value = SceneManager.get_music_volume()
+	music_volume_slider.value_changed.connect(_on_music_volume_changed)
+
+func _on_music_volume_changed(value: float) -> void:
+	SceneManager.set_music_volume(value)
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
@@ -43,7 +57,7 @@ func _on_resume_pressed() -> void:
 	
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	SceneManager.go_to_main_menu()
 
 func _on_glass_broke() -> void:
 	lives -= 1
@@ -56,3 +70,14 @@ func update_lives_ui() -> void:
 	life_1.visible = lives >= 1
 	life_2.visible = lives >= 2
 	life_3.visible = lives >= 3
+
+func register_customer_served() -> void:
+	customers_served += 1
+	update_level_progress_ui()
+	print("Customers served:", customers_served, "/", customers_to_win)
+	
+	if customers_served >= customers_to_win:
+		SceneManager.go_to_next_level()
+
+func update_level_progress_ui() -> void:
+	level_progress_label.text = level_name + " Served: " + str(customers_served) + " / " + str(customers_to_win)

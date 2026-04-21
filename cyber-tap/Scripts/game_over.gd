@@ -8,7 +8,7 @@ func _ready() -> void:
 	quit_game.pressed.connect(_on_menu_pressed)
 	
 func _on_retry_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/CyberTapBar.tscn")
+	SceneManager.restart_level()
 	
 func _on_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	SceneManager.go_to_main_menu()
