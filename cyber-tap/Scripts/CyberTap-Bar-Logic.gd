@@ -16,7 +16,7 @@ var camera_shake_enabled :=true
 @onready var quit_game: Button = $PauseMenu/Panel/VBoxContainer/QuitGame
 @onready var toggle_shake: Button = $PauseMenu/ToggleShake
 @onready var level_progress_label: Label = $HealthBar/LevelProgressLabel
-@onready var volume_slider: HSlider = $PauseMenu/Panel/VolumeSlider
+@onready var music_volume_slider: HSlider = $PauseMenu/MusicVolumeSlider
 
 
 
@@ -29,8 +29,8 @@ func _ready() -> void:
 	toggle_shake.pressed.connect(_on_toggle_shake_pressed)
 	update_shake_button_text()
 	update_level_progress_ui()
-	volume_slider.value = SceneManager.get_music_volume()
-	volume_slider.value_changed.connect(_on_music_volume_changed)
+	music_volume_slider.value = SceneManager.get_music_volume()
+	music_volume_slider.value_changed.connect(_on_music_volume_changed)
 
 func _on_music_volume_changed(value: float) -> void:
 	SceneManager.set_music_volume(value)
