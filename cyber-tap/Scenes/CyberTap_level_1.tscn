@@ -572,7 +572,6 @@ shape = SubResource("RectangleShape2D_ioptu")
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1458031228]
 process_mode = 2
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=723078137]
 offset_left = 7.0
@@ -586,7 +585,8 @@ modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 36.0
+offset_top = -2.0
+offset_right = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 

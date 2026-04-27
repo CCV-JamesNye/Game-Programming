@@ -22,7 +22,7 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496728395]
 texture_filter = 1
-position = Vector2(180.99998, 88.499985)
+position = Vector2(161, 88)
 scale = Vector2(0.49999997, 0.37708333)
 texture = ExtResource("2_o3goa")
 
