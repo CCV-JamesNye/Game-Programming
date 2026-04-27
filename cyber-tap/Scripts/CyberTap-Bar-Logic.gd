@@ -17,6 +17,7 @@ var camera_shake_enabled :=true
 @onready var toggle_shake: Button = $PauseMenu/ToggleShake
 @onready var level_progress_label: Label = $HealthBar/LevelProgressLabel
 @onready var music_volume_slider: HSlider = $PauseMenu/MusicVolumeSlider
+@onready var tutorial_text: Label = get_node_or_null("TutorialText")
 
 
 
@@ -31,6 +32,11 @@ func _ready() -> void:
 	update_level_progress_ui()
 	music_volume_slider.value = SceneManager.get_music_volume()
 	music_volume_slider.value_changed.connect(_on_music_volume_changed)
+	
+	if tutorial_text != null:
+		tutorial_text.visible = true
+		await get_tree().create_timer(10.0).timeout
+		tutorial_text.visible = false
 
 func _on_music_volume_changed(value: float) -> void:
 	SceneManager.set_music_volume(value)

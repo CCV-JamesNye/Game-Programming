@@ -572,6 +572,14 @@ shape = SubResource("RectangleShape2D_ioptu")
 
 [node name="PauseMenu" parent="." unique_id=907273187 instance=ExtResource("32_gv3jm")]
 
+[node name="TutorialText" type="Label" parent="." unique_id=363513953]
+offset_left = 223.0
+offset_top = 25.0
+offset_right = 293.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 8
+text = "Press \"E\" To Serve"
+
 [connection signal="body_entered" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_entered"]
 [connection signal="body_exited" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_exited"]
 [connection signal="body_entered" from="Lane1/BartenderLaneDetection" to="Lane1/BartenderLaneDetection" method="_on_body_entered"]
