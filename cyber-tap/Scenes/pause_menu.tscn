@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cdruawgchase5"]
+
+[ext_resource type="FontFile" uid="uid://dynq214f087as" path="res://Art/Fonts/Orbitron-VariableFont_wght.ttf" id="1_emv3i"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=907273187]
+process_mode = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2105064242]
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 134.0
+offset_bottom = 146.0
+color = Color(0.3137255, 0.37254903, 1, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=150384443]
+modulate = Color(0.9166399, 0.91663986, 0.9166398, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=355813422]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 32.0
+offset_right = 134.0
+offset_bottom = 149.0
+theme_override_constants/separation = 18
+
+[node name="GamePausedLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1076371945]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_emv3i")
+theme_override_font_sizes/font_size = 15
+text = "Game Paused"
+
+[node name="ResumeGame" type="Button" parent="Panel/VBoxContainer" unique_id=1038728035]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_emv3i")
+theme_override_font_sizes/font_size = 10
+text = "Resume Game"
+
+[node name="QuitGame" type="Button" parent="Panel/VBoxContainer" unique_id=821225670]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_emv3i")
+theme_override_font_sizes/font_size = 10
+text = "Quit Game"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1297559052]
+offset_left = 155.0
+offset_top = 114.0
+offset_right = 288.0
+offset_bottom = 154.0
+color = Color(0, 0, 0, 0.9372549)
+
+[node name="ToggleShake" type="Button" parent="." unique_id=1568412434]
+offset_left = 158.0
+offset_top = 117.0
+offset_right = 285.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 13
+text = "Camera Shake: On"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="." unique_id=1959613140]
+offset_left = 162.0
+offset_top = 91.0
+offset_right = 277.0
+offset_bottom = 107.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label" type="Label" parent="." unique_id=1972120770]
+offset_left = 196.0
+offset_top = 71.0
+offset_right = 237.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 11
+text = "Volume"
