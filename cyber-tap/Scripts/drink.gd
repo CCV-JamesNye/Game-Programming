@@ -10,6 +10,27 @@ var moving:= false
 var path_follow: PathFollow2D = null 
 var path_progress := 0.0
 
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	
+func _on_body_entered(body: Node) -> void:
+	if lane == null:
+		return
+		
+	if not body.has_method("serve_customer"):
+		return
+		
+	if body != lane.get_front_customer():
+		return
+		
+	moving = false
+	lane.call_deferred("serve_customer_in_lane", body)
+	
+	if get_parent().has_method("register_customer_served"):
+		get_parent().call_deferred("register_customer_served")
+		
+	call_deferred("queue_free")
+	
 func launch(start_position: Vector2, end_position: Vector2, target_lane):
 	global_position = start_position
 	target_position = end_position

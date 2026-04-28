@@ -33,9 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://ca4mkp3n2h4wl" path="res://Scenes/health_bar.tscn" id="31_s3h3i"]
 [ext_resource type="PackedScene" uid="uid://cdruawgchase5" path="res://Scenes/pause_menu.tscn" id="32_2br2h"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ioptu"]
-radius = 8.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_35r10"]
 atlas = ExtResource("23_2br2h")
 region = Rect2(32, 0, 32, 32)
@@ -155,6 +152,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ioptu"]
+radius = 3.0
+
 [sub_resource type="FontFile" id="FontFile_18en6"]
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
@@ -225,7 +225,7 @@ radius = 14.0
 
 [sub_resource type="Curve2D" id="Curve2D_d7njm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 82.01471, -8.6923065, 0, 0, 0, 0, 13.044121, -1.7692261)
+"points": PackedVector2Array(0, 0, 0, 0, 82.01471, -8.6923065, 0, 0, 0, 0, -97.52776, -8.692139)
 }
 point_count = 2
 
@@ -294,14 +294,14 @@ collision_layer = 2
 script = ExtResource("21_6chc4")
 drink_scene = ExtResource("22_7ijtd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bartender (Player)" unique_id=1596841768]
-position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_ioptu")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bartender (Player)" unique_id=1738631595]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bcwx1")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bartender (Player)" unique_id=1596841768]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_ioptu")
 
 [node name="ServedText" type="Label" parent="Bartender (Player)" unique_id=482646007]
 visible = false
@@ -369,7 +369,7 @@ curve = SubResource("Curve2D_d7njm")
 
 [node name="DrinkPathFollow" type="PathFollow2D" parent="Lane1/DrinkPath" unique_id=1141981167]
 position = Vector2(82.01471, -8.6923065)
-rotation = 3.0415504
+rotation = 3.1415918
 loop = false
 
 [node name="Lane2CustomerLayer" type="Node2D" parent="." unique_id=461436729]
@@ -423,7 +423,7 @@ curve = SubResource("Curve2D_d7njm")
 
 [node name="DrinkPathFollow" type="PathFollow2D" parent="Lane2/DrinkPath" unique_id=1572481249]
 position = Vector2(82.01471, -8.6923065)
-rotation = 3.0415504
+rotation = 3.1415918
 loop = false
 
 [node name="Lane3CustomerLayer" type="Node2D" parent="." unique_id=1890713653]
@@ -477,7 +477,7 @@ curve = SubResource("Curve2D_d7njm")
 
 [node name="DrinkPathFollow" type="PathFollow2D" parent="Lane3/DrinkPath" unique_id=1372443213]
 position = Vector2(82.01471, -8.6923065)
-rotation = 3.0415504
+rotation = 3.1415918
 loop = false
 
 [node name="Lane4CustomerLayer" type="Node2D" parent="." unique_id=153535361]
@@ -530,7 +530,7 @@ curve = SubResource("Curve2D_d7njm")
 
 [node name="DrinkPathFollow" type="PathFollow2D" parent="Lane4/DrinkPath" unique_id=1952906973]
 position = Vector2(82.01471, -8.6923065)
-rotation = 3.0415504
+rotation = 3.1415918
 loop = false
 
 [node name="GlassClink1" type="AudioStreamPlayer2D" parent="." unique_id=1357850782]

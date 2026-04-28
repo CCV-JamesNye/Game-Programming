@@ -72,3 +72,17 @@ func serve_front_customer() -> void:
 	if current_customer != null:
 		current_customer.move_to_position(get_stop_point_global_position())
 	
+func serve_customer_in_lane(customer) -> void:
+	if customer == null:
+		return
+		
+	if customer != get_front_customer():
+		return
+		
+	customer.serve_customer()
+	customer_queue.erase(customer)
+	
+	current_customer = get_front_customer()
+	
+	if current_customer != null:
+		current_customer.move_to_position(get_stop_point_global_position())

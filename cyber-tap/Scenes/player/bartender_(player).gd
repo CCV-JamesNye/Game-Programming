@@ -100,9 +100,5 @@ func launch_drink() -> void:
 		var end_position = current_lane.get_stop_point_global_position()
 		drink.launch(start_position, end_position, current_lane)
 		
-func _on_drink_arrived(drink, lane) -> void:
-	lane.serve_front_customer()
+func _on_drink_arrived(drink, _lane) -> void:
 	drink.queue_free()
-	
-	if get_parent().has_method("register_customer_served"):
-		get_parent().register_customer_served()
