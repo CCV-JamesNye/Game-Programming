@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://c5shd68cu64v2" path="res://Audio/Music/CyberTap-Song-Marois.mp3" id="30_tyxf1"]
 [ext_resource type="PackedScene" uid="uid://ca4mkp3n2h4wl" path="res://Scenes/health_bar.tscn" id="31_d0kda"]
 [ext_resource type="PackedScene" uid="uid://cdruawgchase5" path="res://Scenes/pause_menu.tscn" id="32_gv3jm"]
+[ext_resource type="PackedScene" uid="uid://bs3kl2424gmf7" path="res://Scenes/drink_barrel.tscn" id="33_7otb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uypo1"]
 atlas = ExtResource("23_cq0c5")
@@ -555,7 +556,7 @@ position = Vector2(15.5, 1)
 shape = SubResource("RectangleShape2D_18en6")
 
 [node name="EastWall" type="StaticBody2D" parent="." unique_id=889109099]
-position = Vector2(359, 75)
+position = Vector2(344, 78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall" unique_id=1040264564]
 position = Vector2(1, 15)
@@ -579,6 +580,10 @@ offset_right = 293.0
 offset_bottom = 38.0
 theme_override_font_sizes/font_size = 8
 text = "Press \"E\" To Serve"
+
+[node name="DrinkBarrel" parent="." unique_id=846158673 instance=ExtResource("33_7otb5")]
+position = Vector2(323, 101)
+scale = Vector2(1.25, 1.25)
 
 [connection signal="body_entered" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_entered"]
 [connection signal="body_exited" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_exited"]

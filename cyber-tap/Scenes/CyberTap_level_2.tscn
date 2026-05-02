@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://ieksg7vw2fj6" path="res://Audio/Music/Skrillex style .mp3" id="30_2br2h"]
 [ext_resource type="PackedScene" uid="uid://ca4mkp3n2h4wl" path="res://Scenes/health_bar.tscn" id="31_s3h3i"]
 [ext_resource type="PackedScene" uid="uid://cdruawgchase5" path="res://Scenes/pause_menu.tscn" id="32_2br2h"]
+[ext_resource type="PackedScene" uid="uid://bs3kl2424gmf7" path="res://Scenes/drink_barrel.tscn" id="33_35r10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35r10"]
 atlas = ExtResource("23_2br2h")
@@ -558,7 +559,7 @@ position = Vector2(15.5, 1)
 shape = SubResource("RectangleShape2D_18en6")
 
 [node name="EastWall" type="StaticBody2D" parent="." unique_id=889109099]
-position = Vector2(359, 75)
+position = Vector2(344, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EastWall" unique_id=1040264564]
 position = Vector2(1, 15)
@@ -574,6 +575,10 @@ shape = SubResource("RectangleShape2D_ioptu")
 [node name="HealthBar" parent="." unique_id=1612167857 instance=ExtResource("31_s3h3i")]
 
 [node name="PauseMenu" parent="." unique_id=907273187 instance=ExtResource("32_2br2h")]
+
+[node name="DrinkBarrel" parent="." unique_id=846158673 instance=ExtResource("33_35r10")]
+position = Vector2(323, 101)
+scale = Vector2(1.25, 1.25)
 
 [connection signal="body_entered" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_entered"]
 [connection signal="body_exited" from="Lane1/Customer Zone" to="Lane1" method="_on_customer_zone_body_exited"]

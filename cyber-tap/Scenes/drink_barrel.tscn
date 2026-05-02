@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bs3kl2424gmf7"]
+
+[ext_resource type="Texture2D" uid="uid://csejeyg68tei8" path="res://Art/Drink-Barrel-export.png" id="1_2prfi"]
+[ext_resource type="Script" uid="uid://c25caooyd6jlp" path="res://Scenes/DrinkBarrel.gd" id="2_rgg3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4f27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgg3g"]
+size = Vector2(21, 26)
+
+[node name="DrinkBarrel" type="Node2D" unique_id=846158673]
+
+[node name="Barrel" type="Sprite2D" parent="." unique_id=1214256345]
+texture_filter = 1
+texture = ExtResource("1_2prfi")
+
+[node name="RefillArea" type="Area2D" parent="." unique_id=1524810634]
+position = Vector2(-17, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_rgg3g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RefillArea" unique_id=170013873]
+shape = SubResource("RectangleShape2D_y4f27")
+
+[node name="BarrelBlock" type="StaticBody2D" parent="." unique_id=5038887]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelBlock" unique_id=838858421]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_rgg3g")
+
+[connection signal="body_entered" from="RefillArea" to="RefillArea" method="_on_body_entered"]
+[connection signal="body_exited" from="RefillArea" to="RefillArea" method="_on_body_exited"]

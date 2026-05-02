@@ -10,10 +10,15 @@ var levels := [
 
 var victory_scene := "res://Scenes/victory.tscn"
 var main_menu_scene := "res://Scenes/main_menu.tscn"
+var endless_scene := "res://Scenes/Endless_Mode.tscn"
 
 func start_game() -> void:
 	current_level_index = 0
 	get_tree().change_scene_to_file(levels[current_level_index])
+	
+func start_endless_mode() -> void:
+	get_tree().change_scene_to_file(endless_scene)
+	
 	
 func go_to_next_level() -> void:
 	current_level_index += 1

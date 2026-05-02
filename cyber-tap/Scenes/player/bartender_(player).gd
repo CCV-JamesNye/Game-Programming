@@ -14,6 +14,8 @@ signal glass_broke
 var current_lane = null
 var lanes = []
 
+var near_tap := false
+var has_filled_drink := false
 
 func _ready():
 	lanes = [
@@ -60,20 +62,40 @@ func _physics_process(_delta):
 		
 	#serving
 	if Input.is_action_just_pressed("serve"):
+		if near_tap: 
+			has_filled_drink = true
+			glass_clink_1.play()
+			served_text.text = "Filled!"
+			served_text.visible = true 
+			await get_tree().create_timer(0.5).timeout
+			served_text.visible = false
+			return
+			
+		if not has_filled_drink:
+			served_text.text = "Need drink!"
+			served_text.visible = true
+			await get_tree().create_timer(0.5).timeout
+			served_text.visible = false
+			return
+			
 		if current_lane == null:
+			has_filled_drink = false
 			glass_bottle_break.play()
 			glass_broke.emit()
 		else:
 			var front_customer = current_lane.get_front_customer()
 			
 			if front_customer == null:
+				has_filled_drink = false
 				glass_bottle_break.play()
 				glass_broke.emit()
 			else:
+				has_filled_drink = false
 				glass_clink_1.play()
 				print("Serving drink in lane:", current_lane)
 				launch_drink()
 				
+				served_text.text = "Served!"
 				served_text.visible = true
 				await get_tree().create_timer(0.5).timeout
 				served_text.visible = false

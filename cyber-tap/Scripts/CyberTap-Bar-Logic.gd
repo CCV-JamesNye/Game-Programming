@@ -2,6 +2,7 @@ extends Node2D
 
 @export var level_name: String = "Level 1"
 @export var customers_to_win: int = 5
+@export var endless_mode: bool = false
 
 var customers_served := 0
 var lives := 3
@@ -40,6 +41,7 @@ func _ready() -> void:
 
 func _on_music_volume_changed(value: float) -> void:
 	SceneManager.set_music_volume(value)
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		toggle_pause()
@@ -53,6 +55,7 @@ func update_shake_button_text() -> void:
 		toggle_shake.text = "Camera Shake: On"
 	else:
 		toggle_shake.text = "Camera Shake: Off"
+		
 func toggle_pause() -> void:
 	get_tree().paused = not get_tree().paused
 	pause_menu.visible = get_tree().paused
@@ -82,8 +85,11 @@ func register_customer_served() -> void:
 	update_level_progress_ui()
 	print("Customers served:", customers_served, "/", customers_to_win)
 	
-	if customers_served >= customers_to_win:
+	if not endless_mode and customers_served >= customers_to_win:
 		SceneManager.go_to_next_level()
 
 func update_level_progress_ui() -> void:
-	level_progress_label.text = level_name + " Served: " + str(customers_served) + " / " + str(customers_to_win)
+	if endless_mode:
+		level_progress_label.text = level_name + " Served: " + str(customers_served)
+	else:
+		level_progress_label.text = level_name + " Served: " + str(customers_served) + " / " + str(customers_to_win)
